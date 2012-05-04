@@ -100,7 +100,7 @@ function saveXML(){
 				XML.AppendXML(tempXML.ToString());
 			else{
 				alert('A distribution has to be associated with atleast a name and a pdf');
-				return;
+				//return;
 			}
 			XML.EndNode();
 			XML.EndNode();
