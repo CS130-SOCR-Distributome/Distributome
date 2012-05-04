@@ -15,6 +15,7 @@
 
   
   	<link rel="stylesheet" type="text/css" href="images/Distributome_style.css">
+  	<link rel="stylesheet" type="text/css" href="css/smoothness/jquery-ui-1.8.20.custom.css">
   	<link rel="shortcut icon" href="images/favicon.ico">
 	
   	<script type="text/javascript" src="scripts/protovis-r3.2.js"></script>
@@ -23,6 +24,7 @@
   	<script type="text/javascript" src="scripts/common.js"></script>
 	<script type="text/javascript" src="scripts/editor.js"></script>
 	<script type="text/javascript" src="./scripts/jquery.js"></script>
+	<script type="text/javascript" src="scripts/jquery-ui-1.8.20.custom.min.js"></script>
 	<script type="text/javascript" src="./scripts/splitter.js"></script>
 
 	<script type="text/javascript" src="./scripts/XMLWriter.js"></script>
@@ -425,10 +427,23 @@
 		<tr valign="middle">
 
 			<td colspan="2" align="left" style="white-space:nowrap; height:10px;" >
-				<input type="button" class="home-txt" id="divAdminConsole.edit.submit" value="Save" onClick="saveXML();">
+				<input type="button" class="home-txt" id="divAdminConsole.edit.submit" value="Submit" onClick="$( '#dialog' ).dialog({width: 450});">
 			</td>
 		</tr>
 	</table>
+</div>
+<div id="dialog" title="Submit">
+	<p>To complete the submission, please input your email and the code you see in the image.</p>
+	<p>Your email will not be used for any solicitation but for verification purposes and to respond to you if there are any issues with your submission.</p>
+
+	<form method="post" action="submitXML.php">
+		<ul>
+			<li><label for="email">Email</label><input type="text" name="email" id="email" size="30" /></li>
+			<li><label></label><img id="captcha" src="securimage/securimage_show.php" alt="CAPTCHA Image" /><a href="#" onclick="document.getElementById('captcha').src = 'securimage/securimage_show.php?' + Math.random(); return false"><img src="images/reload.png"/ height="40"></a></li>
+			<li><label for="captcha_code">Captcha</label><input type="text" name="captcha_code" id="captcha_code" maxlength="6" size="30" /></li>
+			<li><input type="submit" value="Submit" style="float: right" onclick="saveXML();"/></li>
+		</ul>
+	</form>
 </div>
 </div>
 
