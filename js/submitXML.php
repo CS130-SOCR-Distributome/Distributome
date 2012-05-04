@@ -46,7 +46,7 @@
 		// by default: info@distributome.org
 		$to_email = 'fayryuka@gmail.com';
 		$subject = 'Request for XML edit';
-		// TODO: figure out where to extract the xml message
+		// TODO: Fix the bugs of generating XML page
 		$xml = $_POST['xml'];
 		
 		// check for email address injection
