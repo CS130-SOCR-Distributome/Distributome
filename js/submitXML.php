@@ -21,12 +21,16 @@
 	}
 	else
 	{
+		// captcha code was incorrect
 		
+		// return error response
 		$response = Array('status' => 'error');
 	}
 	
 	
-
+	// set the header because we're returning a json object
 	header('Content-type: application/json');
+	
+	// return the response
 	echo json_encode($response);
 ?>
