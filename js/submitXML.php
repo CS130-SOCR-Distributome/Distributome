@@ -44,7 +44,7 @@
 		ini_set("sendmail_from", $from_email);
 		$headers = "From: ".$from_email;
 		// by default: info@distributome.org
-		$to_email = 'fayryuka@gmail.com';
+		$to_email = 'fayryuka@gmail.com, stnguyen90@gmail.com, hanna.hoang@ucla.edu';
 		$subject = 'Request for XML edit';
 		// TODO: Fix the bugs of generating XML page
 		$xml = $_POST['xml'];
