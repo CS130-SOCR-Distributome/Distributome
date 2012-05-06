@@ -15,7 +15,7 @@ function addDialog(dialog, title, onClickClose){
 		return;
 	var x = '<div name="titlebar" id="'+dialog+'.titlebar" style="background:#4e647d; height:24px; border-style:solid; border-width:0; cursor:move; width:'+(parseInt(document.getElementById(dialog).style.width))+'px;" class="home-style" valign="top">';
 	x += '<table name="titlebar" cellspacing=0 cellpadding=0 border=0 width="100%" height="24px"><tr name="titlebar" valign="middle">';
-	x += '<td name="titlebar" align="left"><div name="titlebar" style="width:'+(parseInt(document.getElementById(dialog).style.width)-37)+'px;"><div name="titlebar" style="position:absolute; top:2px; left:4px;"><span name="titlebar" style="white-space:nowrap;"><img name="titlebar" src="/cbmui/images/home/dialog-left-icon.gif" height="20px" width="20px" style="border-style:none; border-width:0px" border=0></span></div><div name="titlebar" style="padding:0 5px;"><span name="titlebar" nowrap><label name="titlebar" class="home-txt" style="color:#ffffff"><b name="titlebar">'+title+'</b></label></span></div></div></td>';
+	x += '<td name="titlebar" align="left"><div name="titlebar" style="width:'+(parseInt(document.getElementById(dialog).style.width)-37)+'px;"><div name="titlebar" style="position:absolute; top:2px; left:4px;"><span name="titlebar" style="white-space:nowrap;"></span></div><div name="titlebar" style="padding:0 5px;"><span name="titlebar" nowrap><label name="titlebar" class="home-txt" style="color:#ffffff"><b name="titlebar">'+title+'</b></label></span></div></div></td>';
 	x += '<td name="titlebar" align="right"><span name="titlebar" style="white-space:nowrap">';
 	x += '<input name="titlebar" type="button" style="border:0; background:#4e647d; width:18px; height:20px; color:#fff; font-size:11px; font-weight:bold; font-family:arial; cursor:pointer" value="X " class="home-txt" width="18px" height="20px" id="'+dialog+'.close" onClick="';
 	if(onClickClose)
@@ -154,6 +154,59 @@ function saveXML(){
     doc.write("<html><head><title>Save XML by copying<\br></title></head><body><div><textarea rows=\"50\" cols=\"100\">"+distributomeXML+"</textarea></div></body></html>");
     doc.close();
 	alert("To proceed further, Save this XML displayed and email it for review and publishing to info@sistributome.org");
+}
+
+function submitXML()
+{
+	// gather inputs
+	var email = document.querySelector('#dialog input[name="email"]').value;
+	var captcha_code = document.querySelector('#dialog input[name="captcha_code"]').value;
+	
+	if ( email.search(/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b/i) < 0 )
+	{
+		alert("Email is invalid!");
+		return;
+	}
+	
+	// Disable the submit button and display "Sending..."
+	var submitNode = document.querySelector('#dialog input[type="submit"]');
+	submitNode.value = "Sending...";
+	submitNode.disabled = true;
+	
+	var xmlhttp;
+	if (window.XMLHttpRequest)
+	{	
+		// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp=new XMLHttpRequest();
+	}
+	else
+	{
+		// code for IE6, IE5
+		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	xmlhttp.onreadystatechange=function()
+	{
+		if (xmlhttp.readyState==4 && xmlhttp.status==200)
+	    {
+			var response = JSON.parse(xmlhttp.responseText);
+			if ( response.status == "success" )
+				var text = "Your contribution is now pending review.";
+			else
+				var text = "There was an error submitting your contribution.";
+			
+			// append the text
+			var responseNode = document.getElementById("response");
+			responseNode.innerHTML = text;
+			
+			// re-enable the submit button
+			submitNode.disabled = false;
+			submitNode.value = "Submit";
+	    }
+	}
+	xmlhttp.open("POST","submitXML.php",true);
+	xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	xmlhttp.send("email=" + email + "&captcha_code=" + captcha_code);
+	
 }
 
 /********* Create a drop down **********/

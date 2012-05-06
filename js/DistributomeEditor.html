@@ -436,14 +436,14 @@
 	<p>To complete the submission, please input your email and the code you see in the image.</p>
 	<p>Your email will not be used for any solicitation but for verification purposes and to respond to you if there are any issues with your submission.</p>
 
-	<form method="post" action="submitXML.php">
-		<ul>
-			<li><label for="email">Email</label><input type="text" name="email" id="email" size="30" /></li>
-			<li><label></label><img id="captcha" src="securimage/securimage_show.php" alt="CAPTCHA Image" /><a href="#" onclick="document.getElementById('captcha').src = 'securimage/securimage_show.php?' + Math.random(); return false"><img src="images/reload.png"/ height="40"></a></li>
-			<li><label for="captcha_code">Captcha</label><input type="text" name="captcha_code" id="captcha_code" maxlength="6" size="30" /></li>
-			<li><input type="submit" value="Submit" style="float: right" onclick="saveXML();"/></li>
-		</ul>
-	</form>
+	<ul>
+		<li><label for="email">Email</label><input type="text" name="email" id="email" size="30" tabindex="1" /></li>
+		<li><label></label><img id="captcha" src="securimage/securimage_show.php" alt="CAPTCHA Image"/><a href="#" onclick="document.getElementById('captcha').src = 'securimage/securimage_show.php?' + Math.random(); return false"><img src="images/reload.png" height="40"/></a></li>
+		<li><label for="captcha_code">Captcha</label><input type="text" name="captcha_code" id="captcha_code" maxlength="6" size="30" tabindex="2" /></li>
+		<li><input type="submit" value="Submit" style="float: right" onclick="submitXML();"/></li>
+	</ul>
+	
+	<span id="response"></span>
 </div>
 </div>
 

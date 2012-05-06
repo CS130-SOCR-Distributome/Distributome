@@ -123,6 +123,7 @@ a:hover{ color: #666; text-decoration: none; }
 #dialog
 {
 	width: 450px;
+	display: none;
 }
 
 #dialog ul, #dialog, li
@@ -161,4 +162,11 @@ a:hover{ color: #666; text-decoration: none; }
 #dialog ul li a
 {
 	vertical-align: top;
+}
+
+#dialog #response
+{
+	float: left;
+	font-size: 11px;
+	padding-left: 10px;
 }

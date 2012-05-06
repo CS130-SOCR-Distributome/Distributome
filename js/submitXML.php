@@ -34,8 +34,7 @@
 	// create a new Securimage object
 	$securimage = new Securimage();
 	
-	
-	if ( $securimage->check($_POST['captcha_code']) ) 
+	if ( $securimage->check($_POST['captcha_code']) == false ) 
 	{
 		// captcha code entered was correct
 		
@@ -79,11 +78,14 @@
 		    $response = Array('status' => 'error',
 		                      'message' => 'Email address injection was detected. Please try again.');
 		}
-		
 	}
 	else
 	{
-		// captcha code was incorrect
+		// captcha code entered was correct
+		
+		// gather inputs from user
+		$email = $_POST['email'];
+		$xml = $_POST['xml'];
 		
 		// return error response
 		$response = Array('status' => 'error', 
