@@ -16,7 +16,8 @@
   
   	<link rel="stylesheet" type="text/css" href="images/Distributome_style.css">
   	<link rel="stylesheet" type="text/css" href="css/smoothness/jquery-ui-1.8.20.custom.css">
-  	<link rel="shortcut icon" href="images/favicon.ico">
+  	<link rel="stylesheet" type="text/css" href="editor.css">
+	<link rel="shortcut icon" href="images/favicon.ico">
 	
   	<script type="text/javascript" src="scripts/protovis-r3.2.js"></script>
   	
@@ -400,8 +401,87 @@
 
 <div id="distributome.editXML" style="position:absolute; width:320px; right:0px; top:300px; visibility:hidden; height:400px">
 <div style="height:25px">
-	<table cellpadding="0" cellspacing="0" border="0" width="100%" class="igoogle" style="width: 100%; border-color:black; border-width:0px; margin-top:3px;">
-		<tr><td align="left"><font class="home-txt">Resource Type</font>&nbsp;</td>
+	<!--<table cellpadding="0" cellspacing="0" border="0" width="100%" class="igoogle" style="width: 100%; border-color:black; border-width:0px; margin-top:3px;">-->
+		<div class="tabs">
+		   <div class="tab">
+			   <input type="radio" id="tab-1" name="tab-group-1" checked>
+			   <label for="tab-1">Distribution</label>
+
+			   <div class="content">
+					<table id="distributionTab">
+						<tr>
+							<td style="width: 100px">Name*:</td>
+							<td><input type="text" style="width:180px" name="name"></td>
+						</tr>
+						<tr>
+							<td>PDF*:</td>
+							<td><input type="text" style="width:180px" name="pdf"></td>
+						</tr>
+					</table>
+					<span class="button" onclick="addField()">More</span>
+					<!--<div id="distributome.distributionXml" style="position:absolute;display:;top:60px; height:200px; padding:3px">
+					<table id="distributome.distributionXmlTable" cellpadding="0" cellspacing="0" border="0" width="100%" class="igoogle" style="width: 100%; border-color:black; border-width:0px; margin-top:3px;">
+					</table>
+					</div>-->
+			   </div>
+		   </div>
+
+		   <div class="tab">
+			   <input type="radio" id="tab-2" name="tab-group-1">
+			   <label for="tab-2">Relation</label>
+			   <div class="content">
+				   <table id="relationTab">
+						<tr>
+							<td style="width: 100px">To*:</td>
+						</tr>
+						<tr>
+							<td>From*:</td>
+						</tr>
+						<tr>
+							<td>Statement*:</td>
+							<td><input type="text" style="width:180px" name="statement"></td>
+						</tr>
+						<tr>
+							<td>Type:</td>
+							<td><input type="text" style="width:180px" name="type"></td>
+						</tr>
+						<tr>
+							<td>ID:</td>
+							<td><input type="text" style="width:180px" name="id"></td>
+						</tr>
+					</table>
+			   </div>
+			   <script language="javascript">showDropDowns();</script>
+		   </div>
+
+			<div class="tab">
+			   <input type="radio" id="tab-3" name="tab-group-1">
+			   <label for="tab-3">Citation</label>
+
+			   <div class="content">
+				   <table id = "citationTab">
+						<tr>
+							<td style="width: 100px">Author*:</td>
+							<td><input type="text" style="width:180px" name="author"></td>
+						</tr>
+						<tr>
+							<td>Year*:</td>
+							<td><input type="text" style="width:180px" name="year"></td>
+						</tr>
+						<tr>
+							<td>Title*:</td>
+							<td><input type="text" style="width:180px" name="title"></td>
+						</tr>
+						<tr>
+							<td>URL*:</td>
+							<td><input type="text" style="width:180px" name="url"></td>
+						</tr>
+					</table>
+					<span class="button" onclick="addAuthor()">Add another author</span>
+			   </div>
+		   </div>
+		</div>
+		<!--<tr><td align="left"><font class="home-txt">Resource Type</font>&nbsp;</td>
 
 			<td align="left">
 				<select class="home-txt" id="distributome.resourceType" onchange="reflectResourceType();">
@@ -412,11 +492,7 @@
 			</td>
 
 		</tr>
-	</table>
-</div>
-<div id="distributome.distributionXml" style="position:absolute;display:none;top:60px; height:200px; padding:3px">
-<table id="distributome.distributionXmlTable" cellpadding="0" cellspacing="0" border="0" width="100%" class="igoogle" style="width: 100%; border-color:black; border-width:0px; margin-top:3px;">
-</table>
+	</table>-->
 </div>
 <div id="distributome.relationXml" style="position:absolute;display:none;top:60px;padding:3px">
 <table id="distributome.relationXmlTable" cellpadding="0" cellspacing="0" border="0" width="100%" class="igoogle" style="width: 100%; border-color:black; border-width:0px; margin-top:3px;">

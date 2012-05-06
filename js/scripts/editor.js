@@ -10,6 +10,33 @@ distributomeEditor.references = new Array ();
 var distributomeEditorNodes = new Array();
 var referenceEditorNodes = new Array();
 
+function addField()
+{
+	var newField = createDropDown(distributionArray, '<option value="-1">Select a distribution attribute</option>');
+	var tr = document.createElement('tr');
+	tr.innerHTML = '<td>' + newField + '</td><td><input type="text" style="width:180px" class="home-txt"/></td>';
+	document.getElementById("distributionTab").appendChild(tr);
+}
+
+function showDropDowns()
+{
+	var toDropDown = nodeDropDown;
+	var fromDropDown = nodeDropDown;
+	var td1 = document.getElementById("relationTab").rows[0].insertCell(1);
+	var td2 = document.getElementById("relationTab").rows[1].insertCell(1);
+	td1.innerHTML = toDropDown;
+	td2.innerHTML = fromDropDown;
+}
+
+function addAuthor()
+{
+	var newRow = document.getElementById("citationTab").insertRow(1);
+	var td1 = newRow.insertCell(0);
+	var td2 = newRow.insertCell(1);
+	td1.innerHTML = 'Author:';
+	td2.innerHTML = '<input type="text" style="width:180px" name="author">';
+}
+
 function addDialog(dialog, title, onClickClose){
 	if(!dialog)
 		return;
@@ -211,7 +238,7 @@ function submitXML()
 
 /********* Create a drop down **********/
 	function createDropDown(fillArray, codeSnippet){
-		var dropDownOutput = '<select  class="home-txt" style="width:100px">';
+		var dropDownOutput = '<select  class="home-txt" style="width:80px">';
 		if(codeSnippet)
 			dropDownOutput +=codeSnippet;
 		for(var dropDownOptions=0; dropDownOptions< fillArray.length ;dropDownOptions++ ){
