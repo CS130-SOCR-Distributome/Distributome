@@ -419,7 +419,8 @@
 						</tr>
 					</table>
 					<span class="button" onclick="addField()">More</span>
-					<!--<div id="distributome.distributionXml" style="position:absolute;display:;top:60px; height:200px; padding:3px">
+					<!--Old editor code
+					<div id="distributome.distributionXml" style="position:absolute;display:;top:60px; height:200px; padding:3px">
 					<table id="distributome.distributionXmlTable" cellpadding="0" cellspacing="0" border="0" width="100%" class="igoogle" style="width: 100%; border-color:black; border-width:0px; margin-top:3px;">
 					</table>
 					</div>-->
@@ -481,7 +482,12 @@
 			   </div>
 		   </div>
 		</div>
-		<!--<tr><td align="left"><font class="home-txt">Resource Type</font>&nbsp;</td>
+		<div class="buttons">
+			<button type="button" onclick="saveXML()">Save</button>
+			<button type="button" onclick="$('#dialog').dialog(width:600);">Submit</button>
+		</div>
+		<!--Old editor code
+		<tr><td align="left"><font class="home-txt">Resource Type</font>&nbsp;</td>
 
 			<td align="left">
 				<select class="home-txt" id="distributome.resourceType" onchange="reflectResourceType();">
@@ -494,6 +500,7 @@
 		</tr>
 	</table>-->
 </div>
+<!--Old editor code
 <div id="distributome.relationXml" style="position:absolute;display:none;top:60px;padding:3px">
 <table id="distributome.relationXmlTable" cellpadding="0" cellspacing="0" border="0" width="100%" class="igoogle" style="width: 100%; border-color:black; border-width:0px; margin-top:3px;">
 </table>
@@ -507,7 +514,7 @@
 			</td>
 		</tr>
 	</table>
-</div>
+</div>-->
 <div id="dialog" title="Submit">
 	<p>To complete the submission, please input your email and the code you see in the image.</p>
 	<p>Your email will not be used for any solicitation but for verification purposes and to respond to you if there are any issues with your submission.</p>
@@ -539,7 +546,7 @@
 
 <!-- Splitter JavaScript Functions -->
 <script type="text/javascript">
-initialize();
+//initialize();
 $().ready(function() {
 
 	// Vertical splitter. Set min/max/starting sizes for the left pane.
