@@ -307,7 +307,15 @@ function saveXML(){
 		return;
 	}
     var doc = win.document;
-    doc.write("<html><head><title>Saved XML by Editor<br/></title></head><body><div><textarea rows=\"50\" cols=\"100\">"+distributomeXML+"</textarea></div></body></html>");
+    doc.write("<html><head><title>Saved XML by Editor</title></head><body><div><textarea rows=\"50\" cols=\"100\">"+distributomeXML+"</textarea></div></body></html>");
+    // append the xml under submit dialog
+    var dialog = document.getElementById("dialog");
+    var new_element = document.createElement('li');
+    var new_element_content = document.createElement('textarea');
+    new_element_content.innerHTML = distributomeXML;
+    new_element_content.setAttribute("name", "xml");
+    new_element.appendChild(new_element_content);
+    dialog.children[2].insertBefore(new_element, dialog.children[2].firstChild);
     //doc.close();
 	//alert("To proceed further, Save this XML displayed and email it for review and publishing to info@sistributome.org");
 }
