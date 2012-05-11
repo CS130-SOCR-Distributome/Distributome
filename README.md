@@ -7,7 +7,7 @@
 
 * Added "Save" button that calls saveXML()
 
-* Added "Submit" button that calls submitXML()
+* Added "Submit" button that opens submit dialog
 
 
 ## Noteworthy changes in release 0.1.1 - May 4th, 2012
