@@ -1,5 +1,15 @@
 # NEWS
 
+## Noteworthy changes in release 0.1.2 - May 10th, 2012
+
+### Feature
+* Added tabs to the editor
+
+* Added "Save" button that calls saveXML()
+
+* Added "Submit" button that calls submitXML()
+
+
 ## Noteworthy changes in release 0.1.1 - May 4th, 2012
 
 ### Feature

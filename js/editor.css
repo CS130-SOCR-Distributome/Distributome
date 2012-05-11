@@ -1,12 +1,14 @@
 .tabs {
   position: relative;
-  min-height: 400px; /* This part sucks */
+  min-height: 330px; 
   clear: both;
   margin: 8px 0;
 }
+
 .tab {
   float: left;
 }
+
 .tab label {
   background: #eee;
   padding: 10px;
@@ -15,9 +17,11 @@
   position: relative;
   left: 1px;
 }
+
 .tab [type=radio] {
   display: none;
 }
+
 .content {
   position: absolute;
   top: 30px;
@@ -26,13 +30,16 @@
   right: 0;
   bottom: 0;
   padding: 20px;
-  border: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  overflow: auto;
 }
+
 [type=radio]:checked ~ label {
   background: white;
   border-bottom: 1px solid white;
   z-index: 2;
 }
+
 [type=radio]:checked ~ label ~ .content {
   z-index: 1;
 }
@@ -40,4 +47,12 @@
 .button {
 	text-decoration: underline;
 	cursor: pointer;
+}
+
+.buttons {
+	text-align: right;
+	position: absolute;
+	padding: 0 20px;
+	width: 280px;
+	bottom:10px;
 }

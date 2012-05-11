@@ -10,14 +10,19 @@ distributomeEditor.references = new Array ();
 var distributomeEditorNodes = new Array();
 var referenceEditorNodes = new Array();
 
+// Add new field for "Distribution" tab
 function addField()
 {
+	// Create new field
 	var newField = createDropDown(distributionArray, '<option value="-1">Select a distribution attribute</option>');
+	
+	// Add to table in editor
 	var tr = document.createElement('tr');
 	tr.innerHTML = '<td>' + newField + '</td><td><input type="text" style="width:180px" class="home-txt"/></td>';
 	document.getElementById("distributionTab").appendChild(tr);
 }
 
+// Shows dropdown menus "To" and From" for "Relation" tab
 function showDropDowns()
 {
 	var toDropDown = nodeDropDown;
@@ -28,6 +33,7 @@ function showDropDowns()
 	td2.innerHTML = fromDropDown;
 }
 
+// Add a new author field for "Citation" tab
 function addAuthor()
 {
 	var newRow = document.getElementById("citationTab").insertRow(1);
@@ -256,9 +262,11 @@ function submitXML()
 		}
 		return dropDownOutput;
 	}
-	
+
+// From original editor code. Currently not being called.
 function initialize(){
 	//document.getElementById('distributome.distributionXmlTable').innerHTML = '<tbody><tr><td>hfjf</td></tr></tbody>';
+
 	document.getElementById('distributome.distributionXmlTable').innerHTML = '<tbody><tr><td>'+distributionDropDown+'</td><td></td></tr></tbody>';
 	document.getElementById('distributome.distributionXmlTable').childNodes[0].childNodes[0].childNodes[0].childNodes[0].setAttribute('id','distributome.distributionXmlTable.dropDown0');
 	displayText('distributome.distributionXmlTable',0, 'distribution');
