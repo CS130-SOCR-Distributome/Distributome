@@ -1,4 +1,8 @@
 # NEWS
+## Noteworthy changes in release 0.1.3 - May 11th, 2012
+ 
+### Feature
+* Save XML based on current tab style and display it on a new page
 
 ## Noteworthy changes in release 0.1.2 - May 10th, 2012
 
