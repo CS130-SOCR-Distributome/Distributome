@@ -75,7 +75,7 @@
 			bar.css(opts.origin, newPos).css(opts.fixed, splitter._DF);
 			A.css(opts.origin, 0).css(opts.split, newPos).css(opts.fixed,  splitter._DF);
 			B.css(opts.origin, newPos+bar._DA)
-				.css(opts.split, splitter._DA-bar._DA-newPos).css(opts.fixed,  splitter._DF);
+				.css(opts.fixed,  splitter._DF).css(opts.split, splitter._DA-bar._DA-newPos);
 			// IE fires resize for us; all others pay cash
 			if ( !$.browser.msie )
 				panes.trigger("resize");
