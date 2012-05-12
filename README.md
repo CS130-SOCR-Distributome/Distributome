@@ -1,4 +1,10 @@
 # NEWS
+## Noteworthy changes in release 0.5 - May 12th, 2012
+
+### Bug Fix
+* fixed a JS error from the splitter
+* fixed an error with the editor submission dialog
+
 ## Noteworthy changes in release 0.4 - May 11th, 2012
  
 ### Feature
