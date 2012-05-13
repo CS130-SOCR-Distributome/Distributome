@@ -1,5 +1,8 @@
 # NEWS
 ## Noteworthy changes in release 0.6 - May 13th, 2012
+XML to clean BibTex achieved
+Navigator displays references in a standard format 
+Notes:need more data for testing
 
 ### Bug Fix
 * disabled other window with xml data from popping up
