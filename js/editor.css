@@ -57,3 +57,58 @@
 	width: 280px;
 	bottom:10px;
 }
+
+.buttons span {
+	float: left;
+}
+
+#dialog
+{
+	width: 450px;
+	display: none;
+}
+
+#dialog ul, #dialog, li
+{
+	margin: 0px;
+	padding: 0px;
+}
+
+#dialog ul
+{
+	list-style: none;
+}
+
+#dialog li
+{
+	clear: both;
+	padding-left: 10px;
+	margin: 10px 0px;
+}
+
+#dialog li label
+{
+	width: 100px;
+	display: inline-block;
+	float: left;
+	text-align: left;
+}
+
+#dialog ul li img#captcha
+{
+	margin-left: 95px;
+	margin-right: 10px;
+	border: 1px solid #999;
+}
+
+#dialog ul li a
+{
+	vertical-align: top;
+}
+
+#dialog #response
+{
+	float: left;
+	font-size: 11px;
+	padding-left: 10px;
+}

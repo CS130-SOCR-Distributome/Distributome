@@ -36,62 +36,58 @@
 	
 	if ( $securimage->check($_POST['captcha_code']) == false ) 
 	{
-		// captcha code entered was correct
+		// captcha code entered was incorrect
 		
-		// gather inputs from user		
-		$from_email = $_POST['email'];
-		ini_set("sendmail_from", $from_email);
-		$headers = "From: ".$from_email;
-		// by default: info@distributome.org
-		$to_email = 'fayryuka@gmail.com, stnguyen90@gmail.com, hanna.hoang@ucla.edu';
-		$subject = 'Request for XML edit';
-		// TODO: Fix the bugs of generating XML page
-		$xml = $_POST['xml'];
-		
-		// check for email address injection
-		if (spamcheck($from_email))
-		{
-		    // compose an email
-		    if (mail($to_email, $subject, $xml, $headers))
-		    {
-		        $response = Array('status' => 'success', 
-		                          'from_email' => $from_email, 
-		                          'to_email' => $to_email, 
-		                          'subject' => $subject,
-		                          'xml' => $xml, 
-		                          'message' => 'An email has successfully sent to '.$to_email);
-		    }
-		    else
-		    {
-		        // fail to deliver the email
-		        $response = Array('status' => 'error',
-		                          'header' => $headers, 
-		                          'to_email' => $to_email, 
-		                          'subject' => $subject,
-		                          'xml' => $xml, 
-		                          'message' => 'Fail to deliver your mail. Please try again.');
-		    }
-		}
-		else
-		{
-		    // Detect email injection, return failure
-		    $response = Array('status' => 'error',
-		                      'message' => 'Email address injection was detected. Please try again.');
-		}
+		// return error response
+		$response = Array('status' => 'error',
+				'message' => 'Captchas do not match. Please try again.');
+
 	}
 	else
 	{
 		// captcha code entered was correct
 		
 		// gather inputs from user
-		$email = $_POST['email'];
-		$xml = $_POST['xml'];
+		$from_email = $_POST['email'];
+		$xml = stripslashes($_POST['xml']);
 		
-		// return error response
-		$response = Array('status' => 'error', 
-		                  'message' => 'Capthchas do not match. Please try again.');
+		// prepare email
+		$headers = "From: ".$from_email;
+		$to_email = 'stnguyen90@gmail.com';	// change to info@distributome.org for prod
+		$subject = 'Request for XML edit';
+		
+		
+		// check for email address injection
+		if (spamcheck($from_email))
+		{
+			// compose an email
+			if (mail($to_email, $subject, $xml, $headers))
+			{
+				$response = Array('status' => 'success',
+						'from_email' => $from_email,
+						'to_email' => $to_email,
+						'subject' => $subject,
+						'xml' => $xml,
+						'message' => 'An email has successfully sent to '.$to_email);
+			}
+			else
+			{
+				// fail to deliver the email
+				$response = Array('status' => 'error',
+						'header' => $headers,
+						'to_email' => $to_email,
+						'subject' => $subject,
+						'xml' => $xml,
+						'message' => 'Fail to deliver your mail. Please try again.');
+			}
+		}
+		else
+		{
+			// Detect email injection, return failure
+			$response = Array('status' => 'error',
+					'message' => 'Email address injection was detected. Please try again.');
+		}
 	}
-	
 	
 	// set the header because we're returning a json object
 	header('Content-type: application/json');

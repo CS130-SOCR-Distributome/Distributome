@@ -104,9 +104,13 @@ function reflectResourceType(){
 
 
 function saveXML(){
-	var XML = new XMLWriter(true);
-	XML.BeginNode("distributome");
-	XML.Attrib("version","2.0");
+	if ( typeof editorXML == 'undefined' )
+	{
+		editorXML = new XMLWriter(true);
+		editorXML.BeginNode("distributome");
+		editorXML.Attrib("version","2.0");
+	}
+
 	/************ New version ****************/
 	var e = document.getElementsByClassName('tab');
 	var dist = e[0].childNodes[1];
@@ -114,20 +118,19 @@ function saveXML(){
  	var cit = e[2].childNodes[1];
 	// check if Distribution tab is checked
 	if (dist.checked){
-	    XML.BeginNode("distributions",1);
-	    XML.BeginNode("distribution",2);
+	    editorXML.BeginNode("distribution",1);
 	    var dist_table = document.getElementById("distributionTab");
 	    var dist_name = dist_table.rows[0].cells[1].firstChild.value;
 	    var pdf_value = dist_table.rows[1].cells[1].firstChild.value;
 	    var tempXML = new XMLWriter();
 	    // check for name & pdf
 	    if (dist_name != "" && pdf_value != ""){
-	        XML.Attrib("id",dist_name+"");
+	        editorXML.Attrib("id",dist_name+"");
 	        dist_name += " distribution";
-	        tempXML.BeginNode("name",3);
+	        tempXML.BeginNode("name",2);
 		    tempXML.WriteString(dist_name);
 			tempXML.EndNode();
-	        tempXML.BeginNode("pdf",3);
+	        tempXML.BeginNode("pdf",2);
 		    tempXML.WriteString(pdf_value);
 			tempXML.EndNode();
 	    }
@@ -141,19 +144,25 @@ function saveXML(){
 	        var sel = dist_table.rows[i].cells[0].firstChild;
 	        var sel_type = sel.options[sel.selectedIndex].value;
 	        var sel_value = dist_table.rows[i].cells[1].firstChild.value;
-	        tempXML.BeginNode(sel_type,3);
+	        tempXML.BeginNode(sel_type,2);
 		    tempXML.WriteString(sel_value);
 			tempXML.EndNode();
 	    }
 	    // write to original XML
-	    XML.AppendXML(tempXML.ToString());
-	    XML.EndNode();
-	    XML.EndNode();
+	    editorXML.AppendXML(tempXML.ToString());
+	    editorXML.EndNode();
+	    
+	    // clear inputs
+	    dist_table.rows[0].cells[1].firstChild.value = '';
+	    dist_table.rows[1].cells[1].firstChild.value = '';
+	    while ( dist_table.rows.length > 2 )
+	    {
+	    	dist_table.removeChild(dist_table.rows[2]);
+	    }
 	}
 	// check if Relation tab is checked
-	if (rel.checked){
-	    XML.BeginNode("relations",1);
-		XML.BeginNode("relation",2);
+	else if (rel.checked){
+		editorXML.BeginNode("relation",1);
 		var tempXML = new XMLWriter();
 		var rel_table = document.getElementById("relationTab");
 		var to_ele = rel_table.rows[0].cells[1].firstChild;
@@ -163,14 +172,14 @@ function saveXML(){
 	    var state_ele = rel_table.rows[2].cells[1].firstChild;
 	    // check for required To, From, Statement
 	    if (to_value != "" &&  from_value != "" && state_ele.value != ""){
-	        XML.Attrib("id",from_value+'/'+to_value);
-	        tempXML.BeginNode("to",3);
+	        editorXML.Attrib("id",from_value+'/'+to_value);
+	        tempXML.BeginNode("to",2);
 		    tempXML.WriteString(to_value);
 			tempXML.EndNode();
-			tempXML.BeginNode("from",3);
+			tempXML.BeginNode("from",2);
 		    tempXML.WriteString(from_value);
 			tempXML.EndNode();
-			tempXML.BeginNode("statement",3);
+			tempXML.BeginNode("statement",2);
 		    tempXML.WriteString(state_ele.value);
 			tempXML.EndNode();
 	    }
@@ -184,18 +193,20 @@ function saveXML(){
 	        var next_name = rel_table.rows[i].cells[0].innerHTML;
 	        var next_value = rel_table.rows[i].cells[1].firstChild.value;
 	        // get rid of the unnecessary characters
-	        tempXML.BeginNode(next_name.replace(/[^A-Za-z]/g, "").toLowerCase(),3);
+	        tempXML.BeginNode(next_name.replace(/[^A-Za-z]/g, "").toLowerCase(),2);
 		    tempXML.WriteString(next_value);
     		tempXML.EndNode();
 	    }
-		XML.AppendXML(tempXML.ToString());
-		XML.EndNode();
-	    XML.EndNode();
+	    editorXML.AppendXML(tempXML.ToString());
+		editorXML.EndNode();
+		
+	    // clear inputs
+		for ( var i = 2; i < 5; i++ )
+			rel_table.rows[i].cells[1].firstChild.value = '';
 	}
 	// check if Citation tab is checked
-	if (cit.checked){
-	    XML.BeginNode("citations",1);
-		XML.BeginNode("citation",2);
+	else if (cit.checked){
+		editorXML.BeginNode("citation",1);
 		var tempXML = new XMLWriter();
 		var cit_table = document.getElementById("citationTab");
 		// iterate through all the elements
@@ -206,7 +217,7 @@ function saveXML(){
 	        if (next_name.indexOf('*') != -1){
 	            // Current element value is required
 	            if (next_value != ""){
-	                tempXML.BeginNode(next_name.replace(/[^A-Za-z]/g, "").toLowerCase(),3);
+	                tempXML.BeginNode(next_name.replace(/[^A-Za-z]/g, "").toLowerCase(),2);
 		            tempXML.WriteString(next_value);
     		        tempXML.EndNode();
 	            }
@@ -217,15 +228,37 @@ function saveXML(){
 	        }
 	        else{
 	            // Current element value could be empty
-	            tempXML.BeginNode(next_name.replace(/[^A-Za-z]/g, "").toLowerCase(),3);
+	            tempXML.BeginNode(next_name.replace(/[^A-Za-z]/g, "").toLowerCase(),2);
 		        tempXML.WriteString(next_value);
     		    tempXML.EndNode();
 	        }
 		}
-		XML.AppendXML(tempXML.ToString());
-		XML.EndNode();
-	    XML.EndNode();
+		editorXML.AppendXML(tempXML.ToString());
+		editorXML.EndNode();
+		
+		// clear inputs
+		while (cit_table.rows.length > 4)
+		{
+			cit_table.children[0].removeChild(cit_table.rows[1]);
+		}
+		
+		for ( var i = 0; i < 4; i++ )
+			cit_table.rows[i].cells[1].firstChild.value = '';
 	}
+	
+	// notify user of successful saving
+	var notification = document.querySelector('#distributome\\.editXML .buttons span');
+	notification.innerHTML = "Added new ";
+	if ( dist.checked )
+		notification.innerHTML += "Distribution.";
+	else if ( rel.checked )
+		notification.innerHTML += "Relation.";
+	if ( cit.checked )
+		notification.innerHTML += "Citation.";
+	setTimeout("document.querySelector('#distributome\\\\.editXML .buttons span').innerHTML='';",3000);
+	
+	// enable the submit button if it wasn't already
+	document.querySelectorAll('#distributome\\.editXML .buttons button')[1].disabled="";
 	
 	/************ Old version ****************/
 /*	var e = document.getElementById('distributome.distributionXmlTable');
@@ -297,7 +330,7 @@ function saveXML(){
 			XML.EndNode();
 			XML.EndNode();
 		}
-	}*/
+	}
 	XML.EndNode();
 	var distributomeXML = XML.ToString();
 	//alert(distributomeXML);
@@ -318,6 +351,8 @@ function saveXML(){
     dialog.children[2].insertBefore(new_element, dialog.children[2].firstChild);
     //doc.close();
 	//alert("To proceed further, Save this XML displayed and email it for review and publishing to info@sistributome.org");
+	
+	*/
 }
 
 function submitXML()
@@ -337,6 +372,9 @@ function submitXML()
 	submitNode.value = "Sending...";
 	submitNode.disabled = true;
 	
+	// wrap up the editorXML
+	editorXML.EndNode();
+	
 	var xmlhttp;
 	if (window.XMLHttpRequest)
 	{	
@@ -352,25 +390,39 @@ function submitXML()
 	{
 		if (xmlhttp.readyState==4 && xmlhttp.status==200)
 	    {
+			// retrieve response node
+			var responseNode = document.getElementById("response");
+			
+			// check response
 			var response = JSON.parse(xmlhttp.responseText);
 			if ( response.status == "success" )
+			{
+				responseNode.style.color = 'green';
 				var text = "Your contribution is now pending review.";
+			}
 			else
+			{
+				responseNode.style.color = 'red';
 				var text = "There was an error submitting your contribution.";
+			}
 			
 			// append the text
-			var responseNode = document.getElementById("response");
 			responseNode.innerHTML = text;
 			
 			// re-enable the submit button
 			submitNode.disabled = false;
 			submitNode.value = "Submit";
+			
+			// output for debugging purposes
+			// console.log( JSON.stringify(response) );;
 	    }
 	}
 	xmlhttp.open("POST","submitXML.php",true);
 	xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-	xmlhttp.send("email=" + email + "&captcha_code=" + captcha_code);
+	xmlhttp.send("email=" + email + "&captcha_code=" + captcha_code + "&xml=" + editorXML.ToString());
 	
+	// debugging output
+	// console.log("email=" + email + "&captcha_code=" + captcha_code + "&xml=" + editorXML.ToString());
 }
 
 /********* Create a drop down **********/
