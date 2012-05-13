@@ -1,4 +1,13 @@
 # NEWS
+## Noteworthy changes in release 0.6 - May 13th, 2012
+
+### Bug Fix
+* disabled other window with xml data from popping up
+* made sure the emailing of the xml worked
+
+### Feature
+* allow for submitting multiple distributions/relations/citations
+
 ## Noteworthy changes in release 0.5 - May 12th, 2012
 
 ### Bug Fix
