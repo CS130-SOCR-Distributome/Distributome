@@ -196,6 +196,11 @@ function getObjectReferenceNumber(object){
 /*************** Parse XML to fetch information per node in the XML **************/
 function XMLParser(i, nodeNameIndex, index, reference, XML_Objects){
 	var html = new Array();
+	var html2 = new Array();
+	var yeart = new Array();
+	var authort = new Array();
+	var titlet = new Array();
+	var urlt = new Array();
 	var referenceName = null;
 	if (XML_Objects[i].nodeType==1) {
 		
@@ -216,7 +221,7 @@ function XMLParser(i, nodeNameIndex, index, reference, XML_Objects){
 							referenceName = trim(currLevel2Prop.childNodes[0].nodeValue);
 						}
 					}
-					if(currLevel2Prop.nodeName == 'name' && nameFlag){
+					if(currLevel2Prop.nodeName == 'name' && nameFlag){ 
 						if(nameText == ''){
 							nameText = '<b>'+trim(currLevel2Prop.nodeName)+"</b>: "+
 							trim(currLevel2Prop.childNodes[0].nodeValue);
@@ -242,8 +247,14 @@ function XMLParser(i, nodeNameIndex, index, reference, XML_Objects){
 							html.push("<div style='height:5px'></div>");
 						}
 						typeFlag = false;
-						html.push('<div style="padding-left:3px"><b>'+trim(currLevel2Prop.nodeName)+"</b>: "+
+						html.push('<div style="padding-left:3px"><i>'+trim(currLevel2Prop.nodeName)+"</i>: "+ //distribution references
 							trim(currLevel2Prop.childNodes[0].nodeValue)+'</div>');
+							if(trim(currLevel2Prop.nodeName)=="title")
+							titlet.push(trim(currLevel2Prop.childNodes[0].nodeValue));
+							if(trim(currLevel2Prop.nodeName)=="year")
+							yeart.push(trim(currLevel2Prop.childNodes[0].nodeValue));
+							if(trim(currLevel2Prop.nodeName)=="author")
+							authort.push(trim(currLevel2Prop.childNodes[0].nodeValue));
 						html.push("<div style='height:5px'></div>");
 					}
 				} else k_corr++;
@@ -257,7 +268,13 @@ function XMLParser(i, nodeNameIndex, index, reference, XML_Objects){
 			html.push("<div style='height:5px'></div>");
 		}
 	}
-	return new Array(html.join(''), referenceName);
+	html2.push("<b>");
+	html2.push.apply(html2,yeart);
+	html2.push(", ");
+	html2.push.apply(html2,authort);
+	html2.push("</b></br>");
+	html2.push.apply(html2,titlet);
+	return new Array(html2.join(''), referenceName);
 }
 
 
