@@ -1,8 +1,13 @@
 # NEWS
+## Noteworthy changes in release 1.1 - May 15th, 2012
+
+### Bug Fix
+* XML generated form the Editor now properly formatted
+
 ## Noteworthy changes in release 1.0 - May 14th, 2012
 
 ### Feature
-Navigator displays references in a standard format using BibTex
+* Navigator displays references in a standard format using BibTex
 
 ## Noteworthy changes in release 0.6 - May 13th, 2012
 
