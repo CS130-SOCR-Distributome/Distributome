@@ -53,7 +53,7 @@
 		
 		// prepare email
 		$headers = "From: ".$from_email;
-		$to_email = 'stnguyen90@gmail.com';	// change to info@distributome.org for prod
+		$to_email = $from_email . ', stnguyen90@gmail.com';	// change to info@distributome.org for prod
 		$subject = 'Request for XML edit';
 		
 		
