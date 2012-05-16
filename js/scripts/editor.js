@@ -143,7 +143,7 @@ function saveXML(){
 	    // write to original XML
 	    var dists = editorXML.find('distributions');
 	    if ( dists.length == 0 )
-	    	dists = $('<distributions>').appendTo(editorXML);
+	    	dists = $('<distributions>').appendTo(editorXML.children('distributome'));
 	 
 	    dists.append(distribution);
 	    
@@ -188,7 +188,7 @@ function saveXML(){
 	    // write to original XML
 	    var rels = editorXML.find('relations');
 	    if ( rels.length == 0 )
-	    	rels = $('<relations>').appendTo(editorXML);
+	    	rels = $('<relations>').appendTo(editorXML.children('distributome'));
 	 
 	    rels.append(relation);
 		
@@ -225,7 +225,7 @@ function saveXML(){
 	    // write to original XML
 	    var cits = editorXML.find('citations');
 	    if ( cits.length == 0 )
-	    	cits = $('<citations>').appendTo(editorXML);
+	    	cits = $('<citations>').appendTo(editorXML.children('distributome'));
 		
 		// clear inputs
 		while (cit_table.rows.length > 4)
