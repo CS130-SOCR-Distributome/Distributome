@@ -102,13 +102,11 @@ function reflectResourceType(){
 	}
 }
 
-
 function saveXML(){
 	if ( typeof editorXML == 'undefined' )
 	{
-		editorXML = new XMLWriter(true);
-		editorXML.BeginNode("distributome");
-		editorXML.Attrib("version","2.0");
+		editorXML = $('<root>');
+		$("<distributome>").attr('version', '2.0').appendTo(editorXML);
 	}
 
 	/************ New version ****************/
@@ -118,21 +116,17 @@ function saveXML(){
  	var cit = e[2].childNodes[1];
 	// check if Distribution tab is checked
 	if (dist.checked){
-	    editorXML.BeginNode("distribution",1);
+	    var distribution = $('<distribution>');							// create distribution node
+	    // gather input
 	    var dist_table = document.getElementById("distributionTab");
 	    var dist_name = dist_table.rows[0].cells[1].firstChild.value;
 	    var pdf_value = dist_table.rows[1].cells[1].firstChild.value;
-	    var tempXML = new XMLWriter();
 	    // check for name & pdf
 	    if (dist_name != "" && pdf_value != ""){
-	        editorXML.Attrib("id",dist_name+"");
+	    	distribution.attr('id', dist_name);						// set id of distribution
 	        dist_name += " distribution";
-	        tempXML.BeginNode("name",2);
-		    tempXML.WriteString(dist_name);
-			tempXML.EndNode();
-	        tempXML.BeginNode("pdf",2);
-		    tempXML.WriteString(pdf_value);
-			tempXML.EndNode();
+	        $('<name>').text(dist_name).appendTo(distribution);		// append name node to distribution node
+	        $('<pdf>').text(pdf_value).appendTo(distribution);		// append pdf node to distribution node
 	    }
 	    else{
 	        alert('A distribution must have a "name" and a "pdf"!');
@@ -144,13 +138,14 @@ function saveXML(){
 	        var sel = dist_table.rows[i].cells[0].firstChild;
 	        var sel_type = sel.options[sel.selectedIndex].value;
 	        var sel_value = dist_table.rows[i].cells[1].firstChild.value;
-	        tempXML.BeginNode(sel_type,2);
-		    tempXML.WriteString(sel_value);
-			tempXML.EndNode();
+	        $('<' + sel_type + '>').text(sel_value).appendTo(distribution);
 	    }
 	    // write to original XML
-	    editorXML.AppendXML(tempXML.ToString());
-	    editorXML.EndNode();
+	    var dists = editorXML.find('distributions');
+	    if ( dists.length == 0 )
+	    	dists = $('<distributions>').appendTo(editorXML);
+	 
+	    dists.append(distribution);
 	    
 	    // clear inputs
 	    dist_table.rows[0].cells[1].firstChild.value = '';
@@ -162,8 +157,8 @@ function saveXML(){
 	}
 	// check if Relation tab is checked
 	else if (rel.checked){
-		editorXML.BeginNode("relation",1);
-		var tempXML = new XMLWriter();
+		var relation = $('<relation>');									// create relation node
+		// gather input
 		var rel_table = document.getElementById("relationTab");
 		var to_ele = rel_table.rows[0].cells[1].firstChild;
 		var to_value = to_ele.options[to_ele.selectedIndex].value;
@@ -172,16 +167,10 @@ function saveXML(){
 	    var state_ele = rel_table.rows[2].cells[1].firstChild;
 	    // check for required To, From, Statement
 	    if (to_value != "" &&  from_value != "" && state_ele.value != ""){
-	        editorXML.Attrib("id",from_value+'/'+to_value);
-	        tempXML.BeginNode("to",2);
-		    tempXML.WriteString(to_value);
-			tempXML.EndNode();
-			tempXML.BeginNode("from",2);
-		    tempXML.WriteString(from_value);
-			tempXML.EndNode();
-			tempXML.BeginNode("statement",2);
-		    tempXML.WriteString(state_ele.value);
-			tempXML.EndNode();
+	    	relation.attr('id', from_value+'/'+to_value);				// set id of relation
+	    	$('to').text(to_value).appendTo(relation);					// append to node
+	    	$('from').text(from_value).appendTo(relation);				// append from node
+	    	$('statement').text(state_ele.value).appendTo(relation);	// append statement node
 	    }
 	    else{
 	        alert('A relation must have a "from", a "to" and a "statement"!');
@@ -193,12 +182,15 @@ function saveXML(){
 	        var next_name = rel_table.rows[i].cells[0].innerHTML;
 	        var next_value = rel_table.rows[i].cells[1].firstChild.value;
 	        // get rid of the unnecessary characters
-	        tempXML.BeginNode(next_name.replace(/[^A-Za-z]/g, "").toLowerCase(),2);
-		    tempXML.WriteString(next_value);
-    		tempXML.EndNode();
+	        $('<' + next_name.replace(/[^A-Za-z]/g, "").toLowerCase() + '>').text(next_value).appendTo(relation);
 	    }
-	    editorXML.AppendXML(tempXML.ToString());
-		editorXML.EndNode();
+	    
+	    // write to original XML
+	    var rels = editorXML.find('relations');
+	    if ( rels.length == 0 )
+	    	rels = $('<relations>').appendTo(editorXML);
+	 
+	    rels.append(relation);
 		
 	    // clear inputs
 		for ( var i = 2; i < 5; i++ )
@@ -206,8 +198,8 @@ function saveXML(){
 	}
 	// check if Citation tab is checked
 	else if (cit.checked){
-		editorXML.BeginNode("citation",1);
-		var tempXML = new XMLWriter();
+		var citation = $('<citation>');						// create citation node
+		// gather inputs
 		var cit_table = document.getElementById("citationTab");
 		// iterate through all the elements
 		for (var i = 0; i < cit_table.rows.length; i++){
@@ -217,9 +209,7 @@ function saveXML(){
 	        if (next_name.indexOf('*') != -1){
 	            // Current element value is required
 	            if (next_value != ""){
-	                tempXML.BeginNode(next_name.replace(/[^A-Za-z]/g, "").toLowerCase(),2);
-		            tempXML.WriteString(next_value);
-    		        tempXML.EndNode();
+	                $('<' + next_name.replace(/[^A-Za-z]/g, "").toLowerCase() + '>').text(next_value).appendTo(citation);
 	            }
 	            else{
 	                alert('A citation must have a "author", a "year", a "title" and a "url"!');
@@ -228,13 +218,14 @@ function saveXML(){
 	        }
 	        else{
 	            // Current element value could be empty
-	            tempXML.BeginNode(next_name.replace(/[^A-Za-z]/g, "").toLowerCase(),2);
-		        tempXML.WriteString(next_value);
-    		    tempXML.EndNode();
+	        	$('<' + next_name.replace(/[^A-Za-z]/g, "").toLowerCase() + '>').text(next_value).appendTo(citation);
 	        }
 		}
-		editorXML.AppendXML(tempXML.ToString());
-		editorXML.EndNode();
+
+	    // write to original XML
+	    var cits = editorXML.find('citations');
+	    if ( cits.length == 0 )
+	    	cits = $('<citations>').appendTo(editorXML);
 		
 		// clear inputs
 		while (cit_table.rows.length > 4)
@@ -372,9 +363,6 @@ function submitXML()
 	submitNode.value = "Sending...";
 	submitNode.disabled = true;
 	
-	// wrap up the editorXML
-	editorXML.EndNode();
-	
 	var xmlhttp;
 	if (window.XMLHttpRequest)
 	{	
@@ -419,7 +407,8 @@ function submitXML()
 	}
 	xmlhttp.open("POST","submitXML.php",true);
 	xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-	xmlhttp.send("email=" + email + "&captcha_code=" + captcha_code + "&xml=" + editorXML.ToString());
+	var xmlHeader = '<?xml version="1.0" encoding="UTF-8"?>';
+	xmlhttp.send("email=" + email + "&captcha_code=" + captcha_code + "&xml=" + xmlHeader + editorXML.html());
 	
 	// debugging output
 	// console.log("email=" + email + "&captcha_code=" + captcha_code + "&xml=" + editorXML.ToString());
