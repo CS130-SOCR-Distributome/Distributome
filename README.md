@@ -1,8 +1,16 @@
 # NEWS
+## Noteworthy changes in release 1.2 - May 15th, 2012
+
+### Feature
+* Editor and Navigator functionality merged into DistributomeMerged.html
+
+### Bug Fix
+* XML generated from the Editor wasn't properly nested
+
 ## Noteworthy changes in release 1.1 - May 15th, 2012
 
 ### Bug Fix
-* XML generated form the Editor now properly formatted
+* XML generated from the Editor now properly formatted
 
 ## Noteworthy changes in release 1.0 - May 14th, 2012
 
