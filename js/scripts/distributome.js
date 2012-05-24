@@ -73,6 +73,73 @@ function getArrowSize(d,l){
 	return 3;
 }
 
+/*************** Autofill the XMlEditor ***************/
+function autoFillEditorDistribution (index){
+    var editor = document.getElementById("distributome.editXML");
+    var dist_ele = xmlDoc.getElementsByTagName('distribution')[index];
+    var e = document.getElementsByClassName('tab');
+	var dist = e[0].childNodes[1];
+    // When Editor not displayed or distribution tab not selected, then return directly
+    if (editor.style.visibility == "hidden" || !dist.checked)    return;
+    // Fill in as many blanks as possible
+	var dist_table = document.getElementById("distributionTab");
+	
+	// First, always fill in name
+	// we need to fetch the data for Text object
+	dist_table.rows[0].cells[1].firstChild.value = dist_ele.querySelector('name').firstChild.data.replace(/\s{2,}/g, ' ');  // replace duplicate space
+	// Then, always fill in the pdf
+	dist_table.rows[1].cells[1].firstChild.value = dist_ele.querySelector('pdf').firstChild.data.replace(/\s{2,}/g, ' ');
+	
+	// check for the rest table
+	for (var i = 2; i < dist_table.rows.length; i++){
+	    // fetch select type
+	    var sel = dist_table.rows[i].cells[0].firstChild;
+	    var sel_type = sel.options[sel.selectedIndex].value;
+	    var xml_node = dist_ele.querySelector(sel_type).firstChild;
+	    // check if select data is defined
+	    if (xml_node)
+    	    dist_table.rows[i].cells[1].firstChild.value = xml_node.data.replace(/\s{2,}/g, ' ');
+    	else
+    	    dist_table.rows[i].cells[1].firstChild.value = '';
+	}
+}
+
+function autoFillEditorRelation (linkIndex){
+    var editor = document.getElementById("distributome.editXML");
+    var rel_ele = xmlDoc.getElementsByTagName('relation')[linkIndex];
+    var e = document.getElementsByClassName('tab');
+	var rel = e[1].childNodes[1];
+    // When Editor not displayed or relation tab not selected, then return directly
+    if (editor.style.visibility == "hidden" || !rel.checked)    return;
+    
+    // First fill in the To/From distribution name
+    var to_index = distributome.edges[linkIndex].sourceNode.index;
+    var from_index = distributome.edges[linkIndex].targetNode.index;
+    // set the selected element to designated index
+    var rel_table = document.getElementById("relationTab");
+    var to_ele = rel_table.rows[0].cells[1].firstChild;
+    var from_ele = rel_table.rows[1].cells[1].firstChild;
+    to_ele.options[to_index].selected = "selected";
+    from_ele.options[from_index].selected = "selected";
+    
+    // fill up the statement and type
+    for (var i = 2; i < rel_table.rows.length - 1; i++){
+        // clear up previous value first
+        rel_table.rows[i].cells[1].firstChild.value = ' ';
+        var next_name = rel_table.rows[i].cells[0].innerHTML;
+	    var xml_node = rel_ele.querySelector(next_name.replace(/[^A-Za-z]/g, "").toLowerCase()).firstChild;
+	    // check if select data is defined
+	    if (xml_node)
+    	    rel_table.rows[i].cells[1].firstChild.value = xml_node.data.replace(/\s{2,}/g, ' ');
+    }
+    
+    // fill up the id and clear up previous value
+    rel_table.rows[rel_table.rows.length-1].cells[1].firstChild.value = ' ';
+    var id_data = rel_ele.getAttribute('id');
+    if (id_data != '')
+        rel_table.rows[rel_table.rows.length-1].cells[1].firstChild.value = id_data;
+}
+
 /*************** Reset Distributome Page **************/
 function resetPage(){
 	resetNavigator();
@@ -160,6 +227,11 @@ function getNodeProperties(index, nodeName, d){
 		getReferences(referenceNodes[referenceName]);
 	else getReferences(false);
 	renderMath();
+	
+	//alert("Current index is "+index);
+	// auto fill in the distribution editor
+	autoFillEditorDistribution(index);
+	
 	nodeName = trimSpecialCharacters(nodeName);
 	var firstChar = nodeName.substring(0,1).toUpperCase();
 	nodeName = nodeName.substring(1); //Is it camel case or only first letter Upper Case?
@@ -355,6 +427,12 @@ function getRelationProperties(nodeName, linkIndex){
 	if(referenceName!=null)
 		getReferences(referenceNodes[referenceName]);
 	else getReferences(false);
+	
+	//alert("From Nodename is "+distributome.edges[linkIndex].sourceNode.nodeName+"; To node is "+distributome.edges[linkIndex].targetNode.nodeName);
+	//alert("Link ID is "+linkIndex);
+	// automate fill in the editor
+	autoFillEditorRelation(linkIndex);
+	
 	renderMath();
 	vis.render();
 }

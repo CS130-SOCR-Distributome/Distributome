@@ -1,4 +1,8 @@
 # NEWS
+## Noteworthy changes in release 1.3 - May 24th, 2012
+### Feature
+* Enable select and autofill both distribution and relation field in Editor
+
 ## Noteworthy changes in release 1.2 - May 15th, 2012
 
 ### Feature
