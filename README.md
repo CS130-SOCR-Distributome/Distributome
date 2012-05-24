@@ -6,6 +6,12 @@
 ## Noteworthy changes in release 1.2 - May 15th, 2012
 
 ### Feature
+* New layout design applied to DistributomeMerged-layout.html
+* New CSS in style.css
+* New images for layout in images/new/
+* Slightly modified jquery accordion smoothness theme to custom-theme
+
+### Feature
 * Editor and Navigator functionality merged into DistributomeMerged.html
 
 ### Bug Fix
