@@ -1,10 +1,12 @@
 # NEWS
-## Noteworthy changes in release 1.3 - May 24th, 2012
+## Noteworthy changes in release 1.4 - May 24th, 2012
 ### Feature
 * New layout design applied to DistributomeMerged-layout.html
 * New CSS in style.css
 * New images for layout in images/new/
 * Slightly modified jquery accordion smoothness theme to custom-theme
+
+## Noteworthy changes in release 1.3 - May 24th, 2012
 
 ### Feature
 * Enable select and autofill both distribution and relation field in Editor
