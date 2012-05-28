@@ -161,7 +161,7 @@ function resetVariables(){
 /*************** Reset search text **************/
 function resetText(){
 	document.getElementById('distributome.text').value = '';
-	document.getElementById('distributome.referencePanel').innerHTML = '<b><u>Distribution Referencies</u></b>';
+	document.getElementById('distributome.referencePanel').innerHTML = '<b><u>Distribution References</u></b>';
 	document.getElementById('distributome.propertiesPannel').innerHTML = '<b><u>Distribution Properties</u></b>';	
 	document.getElementById('distributome.relationPannel').innerHTML = '<b><u>Distribution Relations</u></b>';
 }
@@ -405,16 +405,20 @@ function textSearch(){
 /*************** Fetch References from the XML **************/
 function getReferences(index){
 	var html = new Array();
-	html.push("<b><u>Distribution Referencies</u></b> <div style='height:7px'></div>");
+	//html.push("<b><u>Distribution Referencies</u></b> <div style='height:7px'></div>");
 	if(index){
 		html.push(XMLParser(getObjectReferenceNumber('reference'), 9, index, false, DistributomeXML_Objects)[0]);
 	}
-	document.getElementById('distributome.referencePanel').innerHTML = html.join('');
+	var x = "";
+    x = html.toString();
+	document.getElementById("bibtex_input").value= x ;
+	
+
 }
 
 /*************** Fetch relation information of an edge **************/
 function getRelationProperties(nodeName, linkIndex){
-	if(!_shiftKey){
+	if(!_shiftKey){ //if shiftKey is not pressed
 		resetEdges();
 	}
 	distributome.edges[linkIndex].selected = "red";
