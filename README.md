@@ -1,4 +1,21 @@
 # NEWS
+
+## Noteworthy changes in release 1.5 - May 28th, 2012
+### Feature
+* Uses separated Distributions-Relations and References DB
+* References now stored as <reference id=""><bib>bibdata</bib></reference>
+* Made changes to DistributomeNavigator.html
+* References displays from BiB style citations
+* Upload Interface and read implemented, but graph redraw causes error
+
+TODO:
+* Merge into NavigatorMerged
+* One of the issues faced was including the upload function edged out the other buttons
+    ->Suggestion: Get rid of 2 buttons
+* Check for errors
+* Redraw graph and refresh data
+* Make sure editor properly forms new XML style for citations
+
 ## Noteworthy changes in release 1.4 - May 24th, 2012
 ### Feature
 * New layout design applied to DistributomeMerged-layout.html
