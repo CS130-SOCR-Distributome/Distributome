@@ -1,4 +1,5 @@
 var relationStrength = new Array();
+
 relationStrength["convolution"] = 2;
 relationStrength["transformation"] = 2;
 relationStrength["linear transformation"] = 3;
@@ -196,11 +197,7 @@ function getObjectReferenceNumber(object){
 /*************** Parse XML to fetch information per node in the XML **************/
 function XMLParser(i, nodeNameIndex, index, reference, XML_Objects){
 	var html = new Array();
-	var html2 = new Array();
-	var yeart = new Array();
-	var authort = new Array();
 	var titlet = new Array();
-	var urlt = new Array();
 	var referenceName = null;
 	if (XML_Objects[i].nodeType==1) {
 		
@@ -221,7 +218,7 @@ function XMLParser(i, nodeNameIndex, index, reference, XML_Objects){
 							referenceName = trim(currLevel2Prop.childNodes[0].nodeValue);
 						}
 					}
-					if(currLevel2Prop.nodeName == 'name' && nameFlag){ 
+					if(currLevel2Prop.nodeName == 'name' && nameFlag){
 						if(nameText == ''){
 							nameText = '<b>'+trim(currLevel2Prop.nodeName)+"</b>: "+
 							trim(currLevel2Prop.childNodes[0].nodeValue);
@@ -237,7 +234,7 @@ function XMLParser(i, nodeNameIndex, index, reference, XML_Objects){
 						}
 						typeFlag = true;
 					}else{
-						if(nameFlag){
+						if(nameFlag && (Level1Prop[i] && Level1Prop[i].nodeName != 'reference')){
 							html.push('<div style="padding-left:3px">'+nameText+'</div>');
 							html.push("<div style='height:5px'></div>");
 						}
@@ -247,14 +244,18 @@ function XMLParser(i, nodeNameIndex, index, reference, XML_Objects){
 							html.push("<div style='height:5px'></div>");
 						}
 						typeFlag = false;
-						html.push('<div style="padding-left:3px"><i>'+trim(currLevel2Prop.nodeName)+"</i>: "+ //distribution references
-							trim(currLevel2Prop.childNodes[0].nodeValue)+'</div>');
-							if(trim(currLevel2Prop.nodeName)=="title")
+						if(Level1Prop[i] && (Level1Prop[i].nodeName == 'reference') && (trim(currLevel2Prop.nodeName)=="bib"))
+						{							
 							titlet.push(trim(currLevel2Prop.childNodes[0].nodeValue));
-							if(trim(currLevel2Prop.nodeName)=="year")
-							yeart.push(trim(currLevel2Prop.childNodes[0].nodeValue));
-							if(trim(currLevel2Prop.nodeName)=="author")
-							authort.push(trim(currLevel2Prop.childNodes[0].nodeValue));
+							//if(trim(currLevel2Prop.nodeName)=="year")
+						    //yeart.push(trim(currLevel2Prop.childNodes[0].nodeValue));
+							//if(trim(currLevel2Prop.nodeName)=="author")
+							//authort.push(trim(currLevel2Prop.childNodes[0].nodeValue));
+						}
+						else
+						html.push('<div style="padding-left:3px"><b>'+trim(currLevel2Prop.nodeName)+"</b>: "+
+							trim(currLevel2Prop.childNodes[0].nodeValue)+'</div>');
+					    if(Level1Prop[i] && Level1Prop[i].nodeName != 'reference')
 						html.push("<div style='height:5px'></div>");
 					}
 				} else k_corr++;
@@ -268,13 +269,8 @@ function XMLParser(i, nodeNameIndex, index, reference, XML_Objects){
 			html.push("<div style='height:5px'></div>");
 		}
 	}
-	html2.push("<b>");
-	html2.push.apply(html2,yeart);
-	html2.push(", ");
-	html2.push.apply(html2,authort);
-	html2.push("</b></br>");
-	html2.push.apply(html2,titlet);
-	return new Array(html2.join(''), referenceName);
+	html.push.apply(html,titlet);
+	return new Array(html.join(''), referenceName);
 }
 
 
@@ -632,7 +628,7 @@ function traverseXML(searchFlag, text, XML_Objects, nodes, edges, references, no
 									//Process only level=3 element nodes (type 1)
 									if (currLevel2Prop.nodeName == "author") {
 										references[currentReferencesIndex].author = currLevel2Prop.childNodes[0].nodeValue;
-									} else if (currLevel2Prop.nodeName == "title") {
+									} else if (currLevel2Prop.nodeName == "bib") {
 										references[currentReferencesIndex].title = currLevel2Prop.childNodes[0].nodeValue;
 									} else if (currLevel2Prop.nodeName == "year") {
 										references[currentReferencesIndex].year = currLevel2Prop.childNodes[0].nodeValue;
@@ -652,3 +648,5 @@ function traverseXML(searchFlag, text, XML_Objects, nodes, edges, references, no
 	}	// End of for (i=0;i<XML_Objects.length;i++)
 
 }
+
+
