@@ -488,10 +488,13 @@ function updateNodeColor(ontologyArray, level){
 
 	
 {		
-		getURLParameters();
+
+//		getURLParameters();
 		/*** Read in and parse the Distributome.xml DB ***/
+/*
 		var xmlhttp=createAjaxRequest();
-		xmlhttp.open("GET","Distributome.xml",false);
+//		xmlhttp.open("GET","Distributome.xml",false);
+		xmlhttp.open("GET","DistributomeModded.xml",false);
 		xmlhttp.send();
 		if (!xmlhttp.responseXML.documentElement && xmlhttp.responseStream)
 			xmlhttp.responseXML.load(xmlhttp.responseStream);
@@ -503,7 +506,43 @@ function updateNodeColor(ontologyArray, level){
 		}
 		
 		traverseXML(false, null, DistributomeXML_Objects, distributome.nodes, distributome.edges, distributome.references, distributomeNodes, referenceNodes);
+*/		
+
+var xmlhttp=createAjaxRequest();
+		var xmlDoc, xmlDoc1;
+		xmlhttp.open("GET","distributome-relations.xml",false);
+		xmlhttp.send();
+		xmlDoc = xmlhttp.responseXML;
+		xmlhttp=createAjaxRequest();
+		xmlhttp.open("GET","distributome-references.xml",false);
+		xmlhttp.send();
+		xmlDoc1 = xmlhttp.responseXML;
+		var node = xmlDoc.importNode(xmlDoc1.getElementsByTagName("references").item(0), true);
+		xmlDoc.getElementsByTagName("distributome").item(0).appendChild(node);
+			try{ 
+			DistributomeXML_Objects=xmlDoc.documentElement.childNodes; 
+		}catch(error){ 
+			DistributomeXML_Objects=xmlDoc.childNodes; 
+		} 
+//	console.log("firstread: DistributomeXML_Objects: ", DistributomeXML_Objects);
+		traverseXML(false, null, DistributomeXML_Objects, distributome.nodes, distributome.edges, distributome.references, distributomeNodes, referenceNodes);
 		
+		xmlhttp=createAjaxRequest();
+		xmlhttp.open("GET","Distributome.xml.pref",false);
+		xmlhttp.send();
+		if (!xmlhttp.responseXML.documentElement && xmlhttp.responseStream)
+			xmlhttp.responseXML.load(xmlhttp.responseStream);
+		var ontologyOrder = xmlhttp.responseXML;	
+		getOntologyOrderArray(ontologyOrder);
+	
+//		console.log("firstread: xmlDoc: ", xmlDoc);
+//		console.log("firstread: nodes: ", distributome.nodes);
+//		console.log("firstread: edges: ", distributome.edges);
+//		console.log("firstread: distributomeNodes: ", distributomeNodes);
+//		console.log("firstread: referenceNodes: ", referenceNodes);
+	
+}
+
 		xmlhttp=createAjaxRequest();
 		xmlhttp.open("GET","Distributome.xml.pref",false);
 		xmlhttp.send();
