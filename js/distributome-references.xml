@@ -1,0 +1,1236 @@
+<references>
+<reference id="Rogozin 2001" type="article">
+<bib>
+@article{Rogozin2001, 
+author={ Rogozin, B.A. },
+title={ Arcsine distribution },
+publisher={ Springer },
+year={ 2001 },
+url={ http://en.wikipedia.org/wiki/Arcsine_distribution }
+}
+</bib>
+</reference>
+<reference id="Evans Hastings Peacock 2000" type="book">
+<bib>
+@book{EvansHastingsPeacock2000, 
+author={ Evans, M. },
+author={ Hastings, N },
+author={ Peacock, B. },
+title={ Statistical Distributions, },
+name={ Bernoulli distribution },
+publisher={ Wiley },
+year={ 2000 },
+edition={ 3rd },
+address={ New York },
+url={ http://mathworld.wolfram.com/BernoulliDistribution.html }
+}
+</bib>
+</reference>
+<reference id="Weisstein 2009" type="book">
+<bib>
+@book{Weisstein2009, 
+author={ Weisstein, Eric W. },
+title={ Beta Distribution },
+name={ MathWorld },
+url={ http://mathworld.wolfram.com/GammaDistribution.html },
+year={ 2009 }
+}
+</bib>
+</reference>
+<reference id="Beyer 1987" type="book">
+<bib>
+@book{Beyer1987, 
+author={ Beyer, W. H. },
+title={ CRC Standard Mathematical Tables },
+publisher={ CRC Press },
+year={ 1987 },
+edition={ 28th },
+address={ Boca Raton, FL }
+}
+</bib>
+</reference>
+<reference id="Papoulis 1962" type="book">
+<bib>
+@book{Papoulis1962, 
+author={ Papoulis, A. },
+title={ The Fourier Integral and Its Applications },
+publisher={ McGraw-Hill },
+year={ 1962 },
+address={ New York },
+url={ http://mathworld.wolfram.com/BetaDistribution.html }
+}
+</bib>
+</reference>
+<reference id="Dinov Christou Sanchez 2008" type="article">
+<bib>
+@article{DinovChristouSanchez2008, 
+author={ Ivo D. Dinov },
+author={ Nicolas Christou },
+author={ Juana Sanchez },
+year={ 2008 },
+title={ Central Limit Theorem: New SOCR Applet and Demonstration Activity },
+journal={ Journal of Statistics Education },
+volume={ 16 },
+number={ 2 },
+url={ http://www.amstat.org/publications/jse/v16n2/dinov.html }
+}
+</bib>
+</reference>
+<reference id="Dinov Christou Gould 2009" type="article">
+<bib>
+@article{DinovChristouGould2009, 
+author={ Dinov, ID },
+author={ Christou, N },
+author={ Gould, R },
+year={ 2009 },
+title={ Law of Large Numbers: the Theory, Applications and Technology-based Education },
+journal={ JSE },
+volume={ 17 },
+number={ 1 },
+page={ 1-15 }
+}
+</bib>
+</reference>
+<reference id="Christou Dinov 2011" type="article">
+<bib>
+@article{ChristouDinov2011, 
+author={ Christou N },
+author={ Dinov ID },
+year={ 2011 },
+title={ Confidence Interval Based Parameter Estimation -? New SOCR Applet and Activity },
+journal={ PLoS ONE },
+volume={ 6 },
+number={ 5 },
+page={ e19178 },
+doi={ 10.1371/journal.pone.0019178 },
+url={ http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0019178 }
+}
+</bib>
+</reference>
+<reference id="Siegrist 2007" type="article">
+<bib>
+@article{Siegrist2007, 
+title={ Exponential and gamma distributions on positive semigroups, with applications to Dirichlet distributions },
+author={ Kyle Siegrist },
+journal={ Bernoulli },
+volume={ 13 },
+number={ 2 },
+page={ 330-345 },
+year={ 2007 }
+}
+</bib>
+</reference>
+<reference id="Lesser Pearl 2008" type="article">
+<bib>
+@article{LesserPearl2008, 
+title={ Functional Fun in Statistics Teaching: Resources, Research and Recommendations },
+author={ Lawrence M. Lesser },
+author={ Dennis K. Pearl },
+journal={ Journal of Statistics Education },
+volume={ 16 },
+number={ 3 },
+page={ 330-345 },
+year={ 2008 }
+}
+</bib>
+</reference>
+<reference id="Jambunathan 1954" type="article">
+<bib>
+@article{Jambunathan1954, 
+author={ Jambunathan, M. V },
+title={ Some Properties of Beta and Gamma Distributions },
+year={ 1954 },
+url={ http://mathworld.wolfram.com/BetaDistribution.html }
+}
+</bib>
+</reference>
+<reference id="Grubbs 1962" type="book">
+<bib>
+@book{Grubbs1962, 
+author={ Grubbs, Frank E. },
+title={ Attempts to Validate Certain PERT Statistics or Picking on PERT },
+year={ 1962 },
+url={ http://en.wikipedia.org/wiki/Beta_distribution }
+}
+</bib>
+</reference>
+<reference id="Boucher 2007" type="project">
+<bib>
+@project{Boucher2007, 
+report={ Wolfram Demonstrations Project },
+author={ Chris Boucher },
+title={ Binomial distribution },
+year={ 2007 },
+url={ http://en.wikipedia.org/wiki/Binomial_distribution }
+}
+</bib>
+</reference>
+<reference id="Minka 2003" type="project">
+<bib>
+@project{Minka2003, 
+report={ Microsoft Technical Report },
+author={ Minka, Thomas P. },
+title={ Estimating a Dirichlet distribution },
+year={ 2003 },
+url={ http://research.microsoft.com/en-us/um/people/minka/papers/dirichlet/ }
+}
+</bib>
+</reference>
+<reference id="Kotz et al 2006" type="book">
+<bib>
+@book{Kotzetal2006, 
+author={ S.Kotz et al },
+title={ Encyclopedia of Statistical Sciences },
+publisher={ Wiley },
+year={ 2006 },
+edition={ 2nd },
+url={ http://en.wikipedia.org/wiki/Cauchy_distribution#References }
+}
+</bib>
+</reference>
+<reference id="Vasicek 1976" type="article">
+<bib>
+@article{Vasicek1976, 
+author={ Vasicek, Oldrich },
+title={ A Test for Normality Based on Sample Entropy },
+journal={ Journal of the Royal Statistical Society },
+year={ 1976 },
+url={ http://en.wikipedia.org/wiki/Cauchy_distribution#References }
+}
+</bib>
+</reference>
+<reference id="Rothenberg Fisher Tilanus 1966" type="article">
+<bib>
+@article{RothenbergFisherTilanus1966, 
+author={ Rothenberg, Thomas J. },
+author={ Fisher, Franklin, M. },
+author={ Tilanus, C.B. },
+title={ A note on estimation from a Cauchy sample },
+journal={ Journal of the American Statistical Association },
+year={ 1966 },
+url={ http://en.wikipedia.org/wiki/Cauchy_distribution#References }
+}
+</bib>
+</reference>
+<reference id="Freue Gabriella 2007" type="article">
+<bib>
+@article{FreueGabriella2007, 
+author={ Cohen Freue },
+author={ Gabriella V. },
+title={ The Pitman estimator of the Cauchy location parameter },
+journal={ Journal of Statistical Planning and Inference },
+year={ 2007 },
+url={ http://faculty.ksu.edu.sa/69424/USEPAP/Coushy%20dist.pdf }
+}
+</bib>
+</reference>
+<reference id="McCullagh 1992" type="article">
+<bib>
+@article{McCullagh1992, 
+author={ McCullagh, P. },
+title={ Conditional inference and Cauchy models },
+journal={ Biometrika },
+year={ 1992 },
+url={ http://biomet.oxfordjournals.org/content/79/2/247.abstract }
+}
+</bib>
+</reference>
+<reference id="Simon 2002" type="book">
+<bib>
+@book{Simon2002, 
+author={ M. K. Simon },
+title={ Probability Distributions Involving Gaussian Random Variables },
+publisher={ Springer },
+year={ 2002 },
+address={ New York }
+}
+</bib>
+</reference>
+<reference id="" type="book">
+<bib>
+@book{, 
+publisher={ Proceedings of the National Academy of Sciences },
+author={ Wilson, E.B. },
+author={ Hilferty, M.M. },
+title={ The distribution of chi-square },
+year={ 1931 },
+address={ Washington }
+}
+</bib>
+</reference>
+<reference id="Johnson Kotz Balakrishnan 1994" type="book">
+<bib>
+@book{JohnsonKotzBalakrishnan1994, 
+author={ Johnson, N. },
+author={ Kotz, S.; },
+author={ Balakrishnan, N. },
+title={ Continuous Univariate Distributions },
+publisher={ Houghton Mifflin },
+year={ 1994 },
+edition={ 2nd },
+address={ Boston, MA },
+url={ http://mathworld.wolfram.com/ChiDistribution.html }
+}
+</bib>
+</reference>
+<reference id="Evans Hastings Peacock 2000" type="book">
+<bib>
+@book{EvansHastingsPeacock2000, 
+author={ Evans, M. },
+author={ Hastings, N. },
+author={ Peacock, B. },
+title={ Chi Distribution },
+publisher={ Wiley },
+year={ 2000 },
+edition={ 3rd },
+address={ New York }
+}
+</bib>
+</reference>
+<reference id="Johnson 1994" type="article">
+<bib>
+@article{Johnson1994, 
+author={ Johnson, Roger },
+title={ Estimating the Size of a Population },
+journal={ Teaching Statistics },
+year={ 1994 },
+url={ http://www.rsscse.org.uk/ts/index.htm }
+}
+</bib>
+</reference>
+<reference id="Ritzema 1994" type="book">
+<bib>
+@book{Ritzema1994, 
+author={ Ritzema H.P. },
+title={ Drainage Principles and Applications: Frequency and Regression Analysis },
+year={ 1994 },
+url={ http://www.waterlog.info/pdf/freqtxt.pdf }
+}
+</bib>
+</reference>
+<reference id="Shasha 1995" type="book">
+<bib>
+@book{Shasha1995, 
+author={ Shasha, Dennis },
+author={ Cathy Lazere },
+title={ Out of Their Minds:The Lives and Discoveries of 15 Great Computer Scientists },
+year={ 1995 },
+publisher={ Springer-Verlag },
+address={ New York }
+}
+</bib>
+</reference>
+<reference id="Lewin 1981" type="book">
+<bib>
+@book{Lewin1981, 
+author={ Lewin, L. },
+title={ Polylogarithms and Associated Functions },
+year={ 1981 },
+address={ North Holland, Amsterdam },
+url={ http://en.wikipedia.org/wiki/Exponential-logarithmic_distribution#References }
+}
+</bib>
+</reference>
+<reference id="Tahmasbi Rezaei 2008" type="book">
+<bib>
+@book{TahmasbiRezaei2008, 
+author={ Tahmasbi, R. },
+author={ Rezaei, S. },
+title={ A two-parameter lifetime distribution with decreasing failure rate: Computational Statistics and Data Analysis },
+year={ 2008 },
+url={ http://en.wikipedia.org/wiki/Exponential-logarithmic_distribution#References }
+}
+</bib>
+</reference>
+<reference id="Nadarajah 2005" type="article">
+<bib>
+@article{Nadarajah2005, 
+author={ Nadarajah, Saralees },
+title={ A generalized normal distribution },
+journal={ Journal of Applied Statistics },
+year={ September 2005 }
+}
+</bib>
+</reference>
+<reference id="Varanasi Aazhang 1989" type="article">
+<bib>
+@article{VaranasiAazhang1989, 
+author={ Varanasi, M.K. },
+author={ Aazhang, B. },
+title={ Parametric generalized Gaussian density estimation },
+journal={ Journal of the Acoustical Society of America },
+year={ October 1989 }
+}
+</bib>
+</reference>
+<reference id="Dominguez-Molina Gonzalez-Faras Rodriguez-Dagnino 2009" type="article">
+<bib>
+@article{Dominguez-MolinaGonzalez-FarasRodriguez-Dagnino2009, 
+author={ Dominguez-Molina, J. Armando },
+author={ Gonzalez-Faras, Graciela },
+author={ Rodriguez-Dagnino, Ramin M. },
+title={ A practical procedure to estimate the shape parameter in the generalized Gaussian distribution },
+year={ 2009-03-03 },
+url={ http://www.cimat.mx/reportes/enlinea/I-01-18_eng.pdf }
+}
+</bib>
+</reference>
+<reference id="Box Tiao 1992" type="book">
+<bib>
+@book{BoxTiao1992, 
+author={ George E. P. Box },
+author={ Tiao, George C. },
+title={ Bayesian Inference in Statistical Analysis },
+publisher={ Wiley },
+year={ 1992 },
+address={ New York },
+url={ http://en.wikipedia.org/wiki/Exponential_power_distribution#References }
+}
+</bib>
+</reference>
+<reference id="Liang Liu Wang 2007" type="article">
+<bib>
+@article{LiangLiuWang2007, 
+author={ Liang, Faming },
+author={ Liu, Chuanhai },
+author={ Wang, Naisyin },
+title={ A Robust Sequential Bayesian Method For Identification Of Differentially Expressed Genes },
+year={ April 2007 },
+url={ http://www3.stat.sinica.edu.tw/statistica/oldpdf/A17n28.pdf }
+}
+</bib>
+</reference>
+<reference id="Sinz Gerwinn Bethge 2009" type="article">
+<bib>
+@article{SinzGerwinnBethge2009, 
+author={ Sinz, Fabian },
+author={ Gerwinn, Sebastian },
+author={ Bethge, Matthias },
+title={ Characterization of the p-generalized normal distribution },
+journal={ Journal of Multivariate Analysis },
+year={ May 2009 }
+}
+</bib>
+</reference>
+<reference id="Kac 1939" type="article">
+<bib>
+@article{Kac1939, 
+author={ Kac, M. },
+title={ On a characterization of the normal distribution },
+journal={ American Journal of Mathematics },
+year={ 1939 },
+url={ http://en.wikipedia.org/wiki/Exponential_power_distribution#References }
+}
+</bib>
+</reference>
+<reference id="Hosking Wallis 1997" type="article">
+<bib>
+@article{HoskingWallis1997, 
+author={ Hosking, J.R.M. },
+author={ Wallis, J.R. },
+title={ Regional frequency analysis: an approach based on L-moments, },
+publisher={ Cambridge University Press },
+year={ 1997 }
+}
+</bib>
+</reference>
+<reference id="NIST 2006" type="book">
+<bib>
+@book{NIST2006, 
+author={ NIST },
+title={ F-Distribution },
+year={ 2006 },
+url={ http://www.itl.nist.gov/div898/handbook/eda/section3/eda3665.htm }
+}
+</bib>
+</reference>
+<reference id="Mood Franklin Boes 1974" type="book">
+<bib>
+@book{MoodFranklinBoes1974, 
+author={ Mood, Alexander },
+author={ Franklin A. Graybill },
+author={ Duane C. Boes },
+title={ Introduction to the Theory of Statistics },
+publisher={ McGraw-Hill },
+year={ 1974 },
+edition={ Third Edition }
+}
+</bib>
+</reference>
+<reference id="Hogg Craig 1978" type="book">
+<bib>
+@book{HoggCraig1978, 
+author={ R. V. Hogg },
+author={ A. T. Craig },
+title={ Introduction to Mathematical Statistics },
+publisher={ Macmillan },
+year={ 1978 },
+edition={ Fourth Edition },
+address={ New York },
+url={ http://en.wikipedia.org/wiki/Gamma_distribution#References }
+}
+</bib>
+</reference>
+<reference id="Choi Wette 1969" type="book">
+<bib>
+@book{ChoiWette1969, 
+author={ S. C. Choi },
+author={ R. Wette },
+title={ Technometrics },
+year={ 1969 }
+}
+</bib>
+</reference>
+<reference id="Willemse Kaas 2007" type="book">
+<bib>
+@book{WillemseKaas2007, 
+author={ Willemse, W. J. },
+author={ Kaas, R. },
+title={ Insurance: Mathematics and Economics },
+year={ 2007 }
+}
+</bib>
+</reference>
+<reference id="Gumbel 1954" type="book">
+<bib>
+@book{Gumbel1954, 
+author={ Gumbel, E.J. },
+title={ Statistical theory of extreme values and some practical applications },
+publisher={ U.S. Department of Commerce },
+year={ 1954 }
+}
+</bib>
+</reference>
+<reference id="Ritzema (ed.) 1994" type="book">
+<bib>
+@book{Ritzema1994, 
+author={ Ritzema (ed.), H.P. },
+title={ Frequency and Regression Analysis },
+publisher={ International Institute for Land Reclamation and Improvement },
+year={ 1994 },
+address={ Wageningen, The Netherlands },
+url={ http://www.waterlog.info/pdf/freqtxt.pdf }
+}
+</bib>
+</reference>
+<reference id="Talacko 1956" type="article">
+<bib>
+@article{Talacko1956, 
+author={ J. Talacko },
+title={ Perks&apos; distributions and their role in the theory of Wiener&apos;s stochastic variables },
+year={ 1956 },
+url={ http://en.wikipedia.org/wiki/Hyperbolic_secant_distribution }
+}
+</bib>
+</reference>
+<reference id="Devroye 1986" type="book">
+<bib>
+@book{Devroye1986, 
+author={ Luc Devroye },
+title={ Non-Uniform Random Variate Generation },
+publisher={ Springer-Verlag },
+year={ 1986 },
+address={ New York },
+url={ http://en.wikipedia.org/wiki/Hyperbolic_secant_distribution }
+}
+</bib>
+</reference>
+<reference id="Hall 1927" type="book">
+<bib>
+@book{Hall1927, 
+author={ Hall, Philip },
+title={ The Distribution of Means for Samples of Size N Drawn from a Population in which the Variate Takes Values Between 0 and 1, All Such Values Being Equally Probable },
+publisher={ Biometrika },
+year={ 1927 }
+}
+</bib>
+</reference>
+<reference id="Irwin 1927" type="book">
+<bib>
+@book{Irwin1927, 
+author={ Irwin, J.O. },
+title={ On the Frequency Distribution of the Means of Samples from a Population Having any Law of Frequency with Finite Moments, with Special Reference to Pearson&apos;s Type II },
+publisher={ Biometrika },
+year={ 1927 }
+}
+</bib>
+</reference>
+<reference id="Everitt 2002" type="book">
+<bib>
+@book{Everitt2002, 
+author={ Everitt, B.S. },
+title={ The Cambridge Dictionary of Statistics },
+year={ 2002 },
+url={ http://en.wikipedia.org/wiki/Laplace_distribution#References }
+}
+</bib>
+</reference>
+<reference id="Johnson Kotz Balakrishnan 1995" type="book">
+<bib>
+@book{JohnsonKotzBalakrishnan1995, 
+author={ Johnson, N. L. },
+author={ Kotz, S. },
+author={ Balakrishnan N. },
+title={ Continuous Univariate Distributions },
+year={ 1995 },
+edition={ 2nd },
+volume={ 2 },
+url={ http://en.wikipedia.org/wiki/Logistic_distribution }
+}
+</bib>
+</reference>
+<reference id="Balakrishnan 1992" type="book">
+<bib>
+@book{Balakrishnan1992, 
+author={ N., Balakrishnan },
+title={ Handbook of the Logistic Distribution },
+year={ 1992 },
+edition={ Marcel Dekker },
+address={ New York },
+url={ http://en.wikipedia.org/wiki/Logistic_distribution }
+}
+</bib>
+</reference>
+<reference id="Aitchison Brown 1957" type="article">
+<bib>
+@article{AitchisonBrown1957, 
+author={ Aitchison, J. },
+author={ Brown, J.A.C. },
+title={ The Lognormal Distribution },
+publisher={ Cambridge University Press },
+year={ 1957 },
+url={ http://en.wikipedia.org/wiki/Log-normal_distribution }
+}
+</bib>
+</reference>
+<reference id="Limpert Stahel Abbt 2001" type="book">
+<bib>
+@book{LimpertStahelAbbt2001, 
+author={ E. Limpert },
+author={ W. Stahel },
+author={ M. Abbt },
+title={ BioScience },
+year={ 2001 },
+url={ http://stat.ethz.ch/~stahel/lognormal/bioscience.pdf }
+}
+</bib>
+</reference>
+<reference id="Swamee 2002" type="article">
+<bib>
+@article{Swamee2002, 
+author={ Swamee, P.K. },
+title={ Near Lognormal Distribution },
+Journal={ Journal of Hydrologic Engineering },
+year={ 2002 },
+url={ http://ascelibrary.org/heo/resource/1/jhyeff/v7/i6/p441_s1?isAuthorized=no }
+}
+</bib>
+</reference>
+<reference id="Leipnik 1991" type="article">
+<bib>
+@article{Leipnik1991, 
+author={ Roy B. Leipnik },
+title={ On Lognormal Random Variables: I - The Characteristic Function },
+journal={ Journal of the Australian Mathematical Society Series B },
+year={ 1991 },
+url={ http://journals.cambridge.org/action/displaySpecialPage?pageId=1544 }
+}
+</bib>
+</reference>
+<reference id="Gao et al 2009" type="article">
+<bib>
+@article{Gaoetal2009, 
+author={ Gao et al. },
+title={ Asymptotic Behaviors of Tail Density for Sum of Correlated Lognormal Variables },
+journal={ International Journal of Mathematics and Mathematical Sciences },
+year={ 2009 },
+url={ http://www.hindawi.com/journals/ijmms/2009/630857/ }
+}
+</bib>
+</reference>
+<reference id="Brooks Corson Wales 1994" type="book">
+<bib>
+@book{BrooksCorsonWales1994, 
+author={ Robert Brooks },
+author={ Jon Corson },
+author={ J. Donal Wales },
+title={ The Pricing of Index Options When the Underlying Assets All Follow a Lognormal Diffusion },
+year={ 1994 },
+url={ http://papers.ssrn.com/sol3/papers.cfm?abstract_id=5735 }
+}
+</bib>
+</reference>
+<reference id="Shoukri Mian Tracy 1988" type="article">
+<bib>
+@article{ShoukriMianTracy1988, 
+author={ Shoukri, M.M. },
+author={ Mian, I.U.M. },
+author={ Tracy, D.S. },
+title={ Sampling Properties of Estimators of the Log-Logistic Distribution with Application to Canadian Precipitation Data },
+journal={ The Canadian Journal of Statistics },
+year={ 1988 },
+url={ http://en.wikipedia.org/wiki/Log-logistic_distribution#References }
+}
+</bib>
+</reference>
+<reference id="Ashkar Mahdi 2006" type="article">
+<bib>
+@article{AshkarMahdi2006, 
+author={ Ashkar, Fahim },
+author={ Mahdi, Smail },
+title={ Fitting the log-logistic distribution by generalized moments },
+journal={ Journal of Hydrology },
+year={ 2006 },
+url={ http://en.wikipedia.org/wiki/Log-logistic_distribution#References }
+}
+</bib>
+</reference>
+<reference id="Tadikamalla Johnson 1982" type="book">
+<bib>
+@book{TadikamallaJohnson1982, 
+journal={ Biometrika },
+author={ Tadikamalla, Pandu R },
+author={ Johnson, Norman L. },
+title={ Systems of Frequency Curves Generated by Transformations of Logistic Variables },
+year={ 1982 },
+url={ http://www.jstor.org/pss/2335422 }
+}
+</bib>
+</reference>
+<reference id="Tadikamalla 1980" type="article">
+<bib>
+@article{Tadikamalla1980, 
+author={ Tadikamalla, Pandu R. },
+title={ A Look at the Burr and Related Distributions },
+journal={ International Statistical Review },
+year={ 1980 }
+}
+</bib>
+</reference>
+<reference id="Bennett 1983" type="article">
+<bib>
+@article{Bennett1983, 
+author={ Bennett, Steve },
+title={ Log-Logistic Regression Models for Survival Data },
+journal={ Applied Statistics },
+year={ 1983 },
+url={ http://www.jstor.org/pss/2347295 }
+}
+</bib>
+</reference>
+<reference id="Collett 2003" type="book">
+<bib>
+@book{Collett2003, 
+author={ Collett, Dave },
+title={ Modelling Survival Data in Medical Research },
+publisher={ CRC press },
+year={ 2003 },
+edition={ 2nd }
+}
+</bib>
+</reference>
+<reference id="Hosking Wallis 1997" type="article">
+<bib>
+@article{HoskingWallis1997, 
+author={ Hosking, Jonathan R. M. },
+author={ Wallis, James R },
+title={ Regional Frequency Analysis: An Approach Based on L-Moments },
+publisher={ Cambridge University Press },
+year={ 1997 },
+url={ http://en.wikipedia.org/wiki/Log-logistic_distribution#References }
+}
+</bib>
+</reference>
+<reference id="Robson Reed " type="book">
+<bib>
+@book{RobsonReed, 
+journal={ Flood Estimation Handbook },
+author={ Robson, A. },
+author={ Reed, D. },
+title={ Statistical Procedures for Flood Frequency Estimation },
+address={ Wallingford, UK },
+year={ 1999 }
+}
+</bib>
+</reference>
+<reference id="Ahmad Sinclair Werritty 1988" type="article">
+<bib>
+@article{AhmadSinclairWerritty1988, 
+author={ Ahmad, M. I. },
+author={ Sinclair, C. D. },
+author={ Werritty, A. },
+title={ Log-logistic flood frequency analysis },
+journal={ Journal of Hydrology },
+year={ 1988 }
+}
+</bib>
+</reference>
+<reference id="Villarini Vecchi Smith 2010" type="article">
+<bib>
+@article{VillariniVecchiSmith2010, 
+author={ Villarini, G. },
+author={ Vecchi, G.A. },
+author={ Smith, J.A. },
+title={ Modeling of the dependence of tropical storm counts in the North Atlantic Basin on climate indices },
+journal={ Monthly Weather Review },
+year={ 2010 },
+url={ http://en.wikipedia.org/wiki/Monthly_Weather_Review }
+}
+</bib>
+</reference>
+<reference id="McCullagh Nelder 1989" type="book">
+<bib>
+@book{McCullaghNelder1989, 
+author={ McCullagh, Peter },
+author={ Nelder, John },
+title={ Generalized Linear Models },
+publisher={ Boca Raton: Chapman and Hall/CRC },
+year={ 1989 },
+edition={ 2nd },
+url={ http://en.wikipedia.org/wiki/Generalized_linear_model }
+}
+</bib>
+</reference>
+<reference id="Cameron Trivedi 1998" type="article">
+<bib>
+@article{CameronTrivedi1998, 
+author={ Cameron, Adrian C. },
+author={ Trivedi, Pravin K. },
+title={ Regression analysis of count data },
+publisher={ Cambridge University Press },
+year={ 1998 },
+url={ http://cameron.econ.ucdavis.edu/racd/count.html }
+}
+</bib>
+</reference>
+<reference id="Haldane 1945" type="book">
+<bib>
+@book{Haldane1945, 
+journal={ Biometrika },
+author={ J. B. S. Haldane },
+title={ On a Method of Estimating Frequencies },
+year={ 1945 },
+url={ http://en.wikipedia.org/wiki/Biometrika }
+}
+</bib>
+</reference>
+<reference id="Spencer Paul 1998" type="book">
+<bib>
+@book{SpencerPaul1998, 
+author={ Spencer, Paul },
+title={ The Pastoral Continuum: the Marginalization of Tradition in East Africa },
+publisher={ Clarendon Press },
+year={ 1998 },
+address={ Oxford },
+url={ http://en.wikipedia.org/wiki/Negative_binomial_distribution#References }
+}
+</bib>
+</reference>
+<reference id="Hilbe Joseph 2007" type="book">
+<bib>
+@book{HilbeJoseph2007, 
+author={ Hilbe, Joseph M. },
+title={ Negative Binomial Regression },
+publisher={ Cambridge University Press },
+year={ 2007 },
+address={ Cambridge, UK }
+}
+</bib>
+</reference>
+<reference id="Amari Nagaoka 2000" type="book">
+<bib>
+@book{AmariNagaoka2000, 
+author={ Amari, Shun-ichi },
+author={ Nagaoka, Hiroshi },
+title={ Methods of information geometry },
+publisher={ Oxford University Press },
+year={ 2000 },
+url={ http://en.wikipedia.org/wiki/Normal_distribution#References }
+}
+</bib>
+</reference>
+<reference id="Bernardo Smith 2000" type="book">
+<bib>
+@book{BernardoSmith2000, 
+author={ Bernardo, J. M. },
+author={ Smith, A.F.M. },
+title={ Bayesian Theory },
+publisher={ Wiley },
+year={ 2000 }
+}
+</bib>
+</reference>
+<reference id="Bryc Wlodzimierz 1995" type="book">
+<bib>
+@book{BrycWlodzimierz1995, 
+author={ Bryc, Wlodzimierz },
+title={ The normal distribution: characterizations with applications },
+year={ 1995 },
+url={ http://en.wikipedia.org/wiki/Normal_distribution#References }
+}
+</bib>
+</reference>
+<reference id="Casella Berger 2001" type="book">
+<bib>
+@book{CasellaBerger2001, 
+author={ Casella, George },
+author={ Berger, Roger L. },
+title={ Statistical inference },
+year={ 2001 },
+edition={ 2nd },
+address={ Duxbury }
+}
+</bib>
+</reference>
+<reference id="Cover Thomas 2006" type="book">
+<bib>
+@book{CoverThomas2006, 
+author={ Cover, T. M. },
+author={ Thomas, Joy A. },
+title={ Elements of information theory },
+publisher={ John Wiley and Sons },
+year={ 2006 }
+}
+</bib>
+</reference>
+<reference id="Fan Jianqing 1991" type="book">
+<bib>
+@book{FanJianqing1991, 
+journal={ The Annals of Statistics },
+author={ Fan, Jianqing },
+title={ On the optimal rates of convergence for nonparametric deconvolution problems },
+year={ 1991 }
+}
+</bib>
+</reference>
+<reference id="Galambos Simonelli 2004" type="article">
+<bib>
+@article{GalambosSimonelli2004, 
+author={ Galambos, Janos },
+author={ Simonelli, Italo },
+title={ Products of random variables: applications to problems of physics and to arithmetical functions },
+publisher={ Marcel Dekker, Inc. },
+year={ 2004 }
+}
+</bib>
+</reference>
+<reference id="Gould 1981" type="book">
+<bib>
+@book{Gould1981, 
+author={ Stephen Jay Gould },
+title={ The mismeasure of man },
+year={ 1981 },
+edition={ 1st },
+publisher={ W.W. Norton },
+url={ http://en.wikipedia.org/wiki/The_Mismeasure_of_Man }
+}
+</bib>
+</reference>
+<reference id="Halperin Hartley Hoel 1965" type="book">
+<bib>
+@book{HalperinHartleyHoel1965, 
+journal={ The American Statistician },
+author={ Halperin, Max },
+author={ Hartley, H. O. },
+author={ Hoel, P. G. },
+title={ Recommended standards for statistical symbols and notation },
+year={ 1965 }
+}
+</bib>
+</reference>
+<reference id="" type="book">
+<bib>
+@book{, 
+author={ Hart, John F. },
+title={ Computer approximations },
+publisher={ John Wiley &amp; Sons },
+year={ 1968 },
+address={ New York },
+url={ http://en.wikipedia.org/wiki/Normal_distribution#References }
+}
+</bib>
+</reference>
+<reference id="Huxley 1932" type="book">
+<bib>
+@book{Huxley1932, 
+author={ Huxley, Julian S. },
+title={ Problems of relative growth },
+year={ 1932 },
+address={ London }
+}
+</bib>
+</reference>
+<reference id="Lukacs King 1954" type="article">
+<bib>
+@article{LukacsKing1954, 
+journal={ The Annals of Mathematical Statistics },
+author={ Lukacs, Eugene },
+author={ King, Edgar P. },
+title={ A property of normal distribution },
+year={ 1954 }
+}
+</bib>
+</reference>
+<reference id="" type="book">
+<bib>
+@book{, 
+author={ McPherson, G. },
+title={ Statistics in scientific investigation: its basis, application and interpretation },
+publisher={ Springer-Verlag },
+year={ 1990 },
+url={ http://en.wikipedia.org/wiki/Normal_distribution#References }
+}
+</bib>
+</reference>
+<reference id="Marsaglia Tsang 2000" type="article">
+<bib>
+@article{MarsagliaTsang2000, 
+author={ Marsaglia, George },
+author={ Tsang, Wai Wan },
+title={ The Ziggurat Method for Generating Random Variables },
+journal={ Journal of Statistical Software },
+year={ 2000 },
+url={ http://www.jstatsoft.org/v05/i08/paper }
+}
+</bib>
+</reference>
+<reference id="Stigler 1978" type="article">
+<bib>
+@article{Stigler1978, 
+author={ Stigler, Stephen M. },
+title={ Mathematical statistics in the early states },
+journal={ The Annals of Statistics },
+year={ 1978 }
+}
+</bib>
+</reference>
+<reference id="Stigler 1982" type="article">
+<bib>
+@article{Stigler1982, 
+author={ Stigler, Stephen M. },
+title={ A modest proposal: a new standard for the normal },
+journal={ The American Statistician },
+year={ 1982 }
+}
+</bib>
+</reference>
+<reference id="Stigler 1986" type="book">
+<bib>
+@book{Stigler1986, 
+author={ Stigler, Stephen M. },
+title={ The history of statistics: the measurement of uncertainty before 1900 },
+publisher={ Harvard University Press },
+year={ 1986 }
+}
+</bib>
+</reference>
+<reference id="Arnold 1983" type="book">
+<bib>
+@book{Arnold1983, 
+author={ Barry C. Arnold },
+title={ Pareto Distributions },
+publisher={ International Co-operative Publishing House },
+year={ 1983 },
+url={ http://en.wikipedia.org/wiki/Pareto_distribution#External_links }
+}
+</bib>
+</reference>
+<reference id="Kleiber Kotz 2003" type="book">
+<bib>
+@book{KleiberKotz2003, 
+author={ Christian Kleiber },
+author={ Samuel Kotz },
+title={ Statistical Size Distributions in Economics and Actuarial Sciences },
+publisher={ Willey },
+year={ 2003 }
+}
+</bib>
+</reference>
+<reference id="Guerriero Iannace et al 2009" type="article">
+<bib>
+@article{GuerrieroIannaceetal2009, 
+author={ V. Guerriero },
+author={ A. Iannace },
+author={ S. Mazzoli },
+author={ M. Parente },
+author={ S. Vitale },
+author={ M. Giorgioni },
+title={ Quantifying uncertainties in multi-scale studies of fractured reservoir analogues: Implemented statistical analysis of scan line data from carbonate rocks },
+journal={ Journal of Structural Geology },
+year={ 2009 },
+url={ http://dx.doi.org/10.1016/j.jsg.2009.04.016 }
+}
+</bib>
+</reference>
+<reference id="Ahrens Dieter 1982" type="article">
+<bib>
+@article{AhrensDieter1982, 
+author={ Joachim H. Ahrens },
+author={ Ulrich Dieter },
+title={ Computer Generation of Poisson Deviates },
+journal={ ACM Transactions on Mathematical Software },
+year={ 1982 },
+url={ http://portal.acm.org/citation.cfm?id=355997 }
+}
+</bib>
+</reference>
+<reference id="Evans Boersma et al 1998" type="article">
+<bib>
+@article{EvansBoersmaetal1998, 
+author={ Ronald J. Evans },
+author={ J. Boersma },
+author={ N. M. Blachman },
+author={ A. A. Jagers },
+title={ The Entropy of a Poisson Distribution },
+year={ 1988 }
+}
+</bib>
+</reference>
+<reference id="Sijbers den Dekker et al 1998" type="book">
+<bib>
+@book{SijbersdenDekkeretal1998, 
+author={ Sijbers J. },
+author={ den Dekker A. J. },
+author={ J. Van Audekerke },
+author={ Verhoye M. },
+author={ Van Dyck D. },
+title={ Magnetic Resonance Imaging },
+year={ 1998 }
+}
+</bib>
+</reference>
+<reference id="Talukdar Lawing 1991" type="article">
+<bib>
+@article{TalukdarLawing1991, 
+author={ Talukdar, K.K. },
+author={ Lawing, William D. },
+title={ Estimation of the parameters of the Rice distribution },
+year={ 1991 },
+url={ http://scitation.aip.org/getabs/servlet/GetabsServlet?prog=normal&amp;id=JASMAN000089000003001193000001&amp;idtype=cvips&amp;gifs=yes&amp;ref=no }
+}
+</bib>
+</reference>
+<reference id="Abdi Tepedelenlioglu et al 2001" type="book">
+<bib>
+@book{AbdiTepedelenliogluetal2001, 
+author={ Abdi, A. },
+author={ Tepedelenlioglu, C. },
+author={ Kaveh, M. },
+author={ Giannakis, G. },
+title={ On the estimation of the K parameter for the Rice fading distribution },
+year={ 2001 },
+url={ http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=913150&amp;tag=1 }
+}
+</bib>
+</reference>
+<reference id="Bozchalooi Liang 2007" type="article">
+<bib>
+@article{BozchalooiLiang2007, 
+author={ I. Soltani Bozchalooi },
+author={ Ming Liang },
+title={ A smoothness index-guided approach to wavelet parameter selection in signal de-noising and fault detection },
+journal={ Journal of Sound and Vibration },
+year={ 2007 },
+url={ http://www.sciencedirect.com/science?_ob=Articleurl&amp;_udi=B6WM3-4PK8B4Y-7&amp;_user=446478&amp;_coverDate=11%2F20%2F2007&amp;_rdoc=1&amp;_fmt=high&amp;_orig=gateway&amp;_origin=gateway&amp;_sort=d&amp;_docanchor=&amp;view=c&amp;_acct=C000020380&amp;_version=1&amp;_urlVersion=0&amp;_userid=446478&amp;md5=b10b8071cb599dcee81b1c353b80d949&amp;searchtype=a }
+}
+</bib>
+</reference>
+<reference id="Bailey 1994" type="article">
+<bib>
+@article{Bailey1994, 
+author={ Bailey, R. W. },
+title={ Polar generation of random variates with the t-distribution },
+journal={ Mathematics of Computation },
+year={ 1994 }
+}
+</bib>
+</reference>
+<reference id="Venables Ripley 2002" type="book">
+<bib>
+@book{VenablesRipley2002, 
+author={ W.N. Venables },
+author={ B.D. Ripley },
+title={ Modern Applied Statistics with S },
+publisher={ Springer },
+year={ 2002 },
+edition={ 4th },
+url={ http://en.wikipedia.org/wiki/T-distribution#References }
+}
+</bib>
+</reference>
+<reference id="Gelman Carlin et al 2003" type="book">
+<bib>
+@book{GelmanCarlinetal2003, 
+author={ Gelman, Andrew },
+author={ John B. Carlin },
+author={ Hal S. Stern },
+author={ Donald B. Rubin },
+title={ Bayesian Data Analysis },
+publisher={ CRC/Chapman &amp; Hall },
+year={ 2003 },
+edition={ 2nd },
+url={ http://www.stat.columbia.edu/~gelman/book/ }
+}
+</bib>
+</reference>
+<reference id="" type="book">
+<bib>
+@book{, 
+author={ Borradaile, Graham }
+}
+</bib>
+</reference>
+<reference id="Mardia Jupp 1999" type="book">
+<bib>
+@book{MardiaJupp1999, 
+author={ Mardia, Kanti V. },
+author={ Jupp, Peter E. },
+title={ Directional Statistics },
+publisher={ Wiley },
+year={ 1999 },
+address={ New York }
+}
+</bib>
+</reference>
+<reference id="Fisher 1993" type="book">
+<bib>
+@book{Fisher1993, 
+author={ Fisher, Nicholas I. },
+title={ Statistical Analysis of Circular Data },
+year={ 1993 },
+address={ New York }
+}
+</bib>
+</reference>
+<reference id="Chhikara 1989" type="book">
+<bib>
+@book{Chhikara1989, 
+author={ Raj Chhikara },
+author={ Leroy Folks },
+title={ The inverse gaussian distribution: theory, methodology, and applications },
+year={ 1989 }
+}
+</bib>
+</reference>
+<reference id="Seshadri 1993" type="book">
+<bib>
+@book{Seshadri1993, 
+author={ V. Seshadri },
+title={ The Inverse Gaussian Distribution },
+publisher={ Oxford Univ Press },
+year={ 1993 }
+}
+</bib>
+</reference>
+<reference id="Sagias 2005" type="article">
+<bib>
+@article{Sagias2005, 
+author={ Sagias, Nikos C. },
+author={ Karagiannidis, George K. },
+title={ Gaussian class multivariate Weibull distributions: theory and applications in fading channels },
+journal={ Transactions on Information Theory },
+year={ 2005 }
+}
+</bib>
+</reference>
+</references>
