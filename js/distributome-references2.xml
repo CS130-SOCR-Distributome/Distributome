@@ -1,0 +1,58 @@
+<references>
+<reference id="">
+<bib>
+</bib>
+</reference>
+<reference id="Beyer 1987" type="book">
+<bib>
+@book{Beyer1987, 
+author={ Beyer, W. H. },
+title={ CRC Standard Mathematical Tables },
+publisher={ CRC Press },
+year={ 1987 },
+edition={ 28th },
+address={ Boca Raton, FL }
+}
+</bib>
+</reference>
+<reference id="Papoulis 1962" type="book">
+<bib>
+@book{Papoulis1962, 
+author={ Papoulis, A. },
+title={ The Fourier Integral and Its Applications },
+publisher={ McGraw-Hill },
+year={ 1962 },
+address={ New York },
+url={ http://mathworld.wolfram.com/BetaDistribution.html }
+}
+</bib>
+</reference>
+<reference id="Dinov Christou Sanchez 2008" type="article">
+<bib>
+@article{DinovChristouSanchez2008, 
+author={ Ivo D. Dinov },
+author={ Nicolas Christou },
+author={ Juana Sanchez },
+year={ 2008 },
+title={ Central Limit Theorem: New SOCR Applet and Demonstration Activity },
+journal={ Journal of Statistics Education },
+volume={ 16 },
+number={ 2 },
+url={ http://www.amstat.org/publications/jse/v16n2/dinov.html }
+}
+</bib>
+</reference>
+<reference id="Siegrist 2007" type="article">
+<bib>
+@article{kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk, 
+title={ kkkkkkkkkkkkkkkkkups, with applications to Dirichlet distributions },
+author={ Kyle Siegrist },
+journal={ Bernoulli },
+volume={ 13 },
+number={ 2 },
+page={ 330-345 },
+year={ 2007 }
+}
+</bib>
+</reference>
+</references>
