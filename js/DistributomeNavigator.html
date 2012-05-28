@@ -16,11 +16,14 @@
   	<link rel="stylesheet" type="text/css" href="images/Distributome_style.css">
   	<link rel="shortcut icon" href="images/favicon.ico">
 	
-  	<script type="text/javascript" src="scripts/protovis-r3.2.js"></script>
-  	<script type="text/javascript" src="scripts/common.js"></script>
-  	<script type="text/javascript" src="scripts/distributome.js"></script>
+	<script type="text/javascript" src="scripts/common_test.js"></script>
+	<script type="text/javascript" src="scripts/distributome_merge.js"></script>
 	<script type="text/javascript" src="./scripts/jquery.js"></script>
+	<script type="text/javascript" src="./scripts/bibtex_js.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 	<script type="text/javascript" src="./scripts/splitter.js"></script>
+  	<script type="text/javascript" src="scripts/protovis-r3.2.js"></script>
+  	
 
 	<!-- MathJax LaTeX/TeX Typesetting scripts -->
 	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
@@ -102,6 +105,8 @@
 	</script>
 	
 </head>
+<textarea id="bibtex_input" style="visibility: hidden"> 
+</textarea>
 
 
 <body onmousedown="isKeyPressed(event)">
@@ -227,6 +232,75 @@
 				</button>
 			</td>
 			<td class="tool">
+<!--				<button type="button" id="uploadXML" tabindex="4" 
+					title="Upload XML" onclick="uploadXML();">Upload XML
+				</button>
+-->
+<input type="file" id="files" name="files[]" multiple />
+<output id="list"></output>
+			</td>
+			
+			<script>
+			/*
+  function handleFileSelect(evt) {
+    var files = evt.target.files; // FileList object
+
+    // files is a FileList of File objects. List some properties.
+    var output = [];
+    for (var i = 0, f; f = files[i]; i++) {
+      output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
+                  f.size, ' bytes, last modified: ',
+                  f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
+                  '</li>');
+    }
+    document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
+	resetPage();	
+		vis.render();
+		
+	
+  }
+  */
+
+  function handleFileSelect(evt) {
+        var files = evt.target.files; // FileList object
+
+        // Loop through the FileList
+        for (var i = 0, f; f = files[i]; i++) {
+
+          var reader = new FileReader();
+parser=new DOMParser(); 
+          // Closure to capture the file information.
+          reader.onload = (function(theFile) {
+            return function(e) {
+              // Print the contents of the file
+            //  var span = document.createElement('span');                    
+             xmlDoc=parser.parseFromString(e.target.result,"text/xml");
+			 try{ 
+			DistributomeXML_Objects=xmlDoc.documentElement.childNodes; 
+		}catch(error){ 
+			DistributomeXML_Objects=xmlDoc.childNodes; 
+		} 
+          //    document.getElementById('list').insertBefore(span, null);
+            };
+          })(f);
+
+          // Read in the file
+          //reader.readAsDataText(f,UTF-8);
+          reader.readAsText(f);
+		  
+        }
+		//xmlDoc.getElementsByTagName("distributome").item(0).appendChild(node);
+			
+
+		traverseXML(false, null, DistributomeXML_Objects, distributome.nodes, distributome.edges, distributome.references, distributomeNodes, referenceNodes);
+		
+      }
+  document.getElementById('files').addEventListener('change', handleFileSelect, false);
+  
+  
+  
+</script>
+			<td class="tool">
 						<button type="button" id="resetButton" tabindex="4" 
 							title="Restart View" onclick="graphRestart();">Restart
 						</button>
@@ -246,7 +320,9 @@
   	<!-- Main Distributome JS Graphical Navigator -->
   	<div id="LeftPanel"> 
 		<!-- center -->
+		
 		<script type="text/javascript+protovis">
+
 			/**	To Do: Make the height and width of the Graph panel 
 				auto-adjust to the "LeftPanel" panel size that the graph is embedded in!  
 			***/
@@ -285,7 +361,8 @@
 				.chargeConstant(-80)
 				.springLength(200)
 				.bound(true); 
-		
+		console.log("nodes:",distributome.nodes);
+		console.log("edges:",distributome.edges);
 			var linky = force.link.add(pv.Line)
 						.cursor("pointer")
 						//.fillStyle("#696969")
@@ -333,7 +410,9 @@
 		}
 		setDropDownSelectedValue('distributome.connectedNodesAction', 1);
 		connectedNodesFetch();
+		
 		</script>
+		
 		<!--  /center -->
   	</div> 	<!-- Left Pane -->	
 
@@ -359,7 +438,7 @@
 				<b><u>Inter-Distribution Relations</u></b> <br />
 			</div>
 
-			<div class="Bottom Pane" id="distributome.referencePanel" style="line-height:18px"> <!-- Get the References from Distributome.xml -->
+			<div class="Bottom Pane" id="bibtex_display" style="line-height:16px"> <!-- Get the References from Distributome.xml -->
 				<b><u>Distribution Referencies</u></b> <br />
 			</div>
 		</div>
@@ -371,6 +450,22 @@
 
 </center>
 </div>
+
+<script type="text/javascript" charset="utf-8">
+refresh = false;
+window.setInterval(function() {
+	if (refresh) {
+		try {
+			bibtex_js_draw();
+        } catch (err) {}
+      refresh = false;
+	  
+    }
+  }, 500);
+$("#MainSplitPaneObject").click(function() {
+	refresh = true;
+});
+</script>
 
 <div id="wrapper-footer">
 	<div id="footer">
@@ -489,7 +584,7 @@ $().ready(function() {
 		vis.width(w);
 		vis.height(h);
 		vis.render();
-		graphPause();
+	//	graphPause();
 	}
 </script>
 
