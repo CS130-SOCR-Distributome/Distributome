@@ -545,7 +545,7 @@ var xmlhttp=createAjaxRequest();
 //		console.log("firstread: distributomeNodes: ", distributomeNodes);
 //		console.log("firstread: referenceNodes: ", referenceNodes);
 	
-}
+
 
 		xmlhttp=createAjaxRequest();
 		xmlhttp.open("GET","Distributome.xml.pref",false);
