@@ -75,6 +75,7 @@ function getArrowSize(d,l){
 
 /*************** Autofill the XMlEditor ***************/
 function autoFillEditorDistribution (index){
+    //alert("Add clear up to distribution part!");
     var editor = document.getElementById("distributome.editXML");
     var dist_ele = xmlDoc.getElementsByTagName('distribution')[index];
     var e = document.getElementsByClassName('tab');
@@ -83,6 +84,9 @@ function autoFillEditorDistribution (index){
     if (editor.style.visibility == "hidden" || !dist.checked)    return;
     // Fill in as many blanks as possible
 	var dist_table = document.getElementById("distributionTab");
+	
+	// clear up all the field
+	dist_table.innerHTML = dist_table.innerHTML;
 	
 	// First, always fill in name
 	// we need to fetch the data for Text object
@@ -105,6 +109,7 @@ function autoFillEditorDistribution (index){
 }
 
 function autoFillEditorRelation (linkIndex){
+    //alert("Editer Relation Update ONCE MORE!");
     var editor = document.getElementById("distributome.editXML");
     var rel_ele = xmlDoc.getElementsByTagName('relation')[linkIndex];
     var e = document.getElementsByClassName('tab');
@@ -117,6 +122,10 @@ function autoFillEditorRelation (linkIndex){
     var from_index = distributome.edges[linkIndex].targetNode.index;
     // set the selected element to designated index
     var rel_table = document.getElementById("relationTab");
+    
+    // clear up the original input field
+    rel_table.innerHTML = rel_table.innerHTML;
+    
     var to_ele = rel_table.rows[0].cells[1].firstChild;
     var from_ele = rel_table.rows[1].cells[1].firstChild;
     to_ele.options[to_index].selected = "selected";
@@ -134,10 +143,8 @@ function autoFillEditorRelation (linkIndex){
     }
     
     // fill up the id and clear up previous value
-    rel_table.rows[rel_table.rows.length-1].cells[1].firstChild.value = ' ';
     var id_data = rel_ele.getAttribute('id');
-    if (id_data != '')
-        rel_table.rows[rel_table.rows.length-1].cells[1].firstChild.value = id_data;
+    rel_table.rows[rel_table.rows.length-1].cells[1].firstChild.value = id_data;
 }
 
 /*************** Reset Distributome Page **************/
@@ -207,7 +214,11 @@ function getLinkColor(d,l){
 
 /*************** Fetch node properties **************/
 function getNodeProperties(index, nodeName, d){
+    // auto fill in the distribution editor
+	autoFillEditorDistribution(index);
+	
 	if(connectivity && d.selected != "top_hierarchy" && d.selected != "middle_hierarchy") return;
+        
 	if(!_shiftKey){
 		resetNodes();
 		presetNodes = null;
@@ -226,11 +237,8 @@ function getNodeProperties(index, nodeName, d){
 	if(referenceName !=null)
 		getReferences(referenceNodes[referenceName]);
 	else getReferences(false);
-	renderMath();
 	
-	//alert("Current index is "+index);
-	// auto fill in the distribution editor
-	autoFillEditorDistribution(index);
+	renderMath();
 	
 	nodeName = trimSpecialCharacters(nodeName);
 	var firstChar = nodeName.substring(0,1).toUpperCase();
@@ -421,6 +429,10 @@ function getRelationProperties(nodeName, linkIndex){
 	if(!_shiftKey){ //if shiftKey is not pressed
 		resetEdges();
 	}
+	
+	// automate fill in the editor
+	autoFillEditorRelation(linkIndex);
+        
 	distributome.edges[linkIndex].selected = "red";
 	var html = new Array();;
 	html.push("<b><u>Inter-Distribution Relations</u></b> <div style='height:7px'></div>");
@@ -428,14 +440,12 @@ function getRelationProperties(nodeName, linkIndex){
 	html.push(parserOutput[0]);
 	var referenceName = parserOutput[1];
 	document.getElementById('distributome.relationPannel').innerHTML = html.join('');
+    
 	if(referenceName!=null)
 		getReferences(referenceNodes[referenceName]);
 	else getReferences(false);
 	
 	//alert("From Nodename is "+distributome.edges[linkIndex].sourceNode.nodeName+"; To node is "+distributome.edges[linkIndex].targetNode.nodeName);
-	//alert("Link ID is "+linkIndex);
-	// automate fill in the editor
-	autoFillEditorRelation(linkIndex);
 	
 	renderMath();
 	vis.render();

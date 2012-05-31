@@ -1,5 +1,9 @@
 # NEWS
 
+## Noteworthy changes in release 1.5.1 - May 30th, 2012
+### Bug Fix
+* XML Editor autofill properly clear up previous selection for both Distribution and Relation
+
 ## Noteworthy changes in release 1.5 - May 28th, 2012
 ### Feature
 * Uses separated Distributions-Relations and References DB
