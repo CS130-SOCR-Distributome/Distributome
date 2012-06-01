@@ -1,5 +1,9 @@
 # NEWS
 
+## Noteworthy changes in release 1.5.2 - May 31th, 2012
+### Bug Fix
+* Fix XML Editor distribution not properly filled up other field
+
 ## Noteworthy changes in release 1.5.1 - May 30th, 2012
 ### Bug Fix
 * XML Editor autofill properly clear up previous selection for both Distribution and Relation

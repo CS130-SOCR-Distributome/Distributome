@@ -75,7 +75,7 @@ function getArrowSize(d,l){
 
 /*************** Autofill the XMlEditor ***************/
 function autoFillEditorDistribution (index){
-    //alert("Add clear up to distribution part!");
+    //alert("Remove distribution clear up!!!");
     var editor = document.getElementById("distributome.editXML");
     var dist_ele = xmlDoc.getElementsByTagName('distribution')[index];
     var e = document.getElementsByClassName('tab');
@@ -86,7 +86,7 @@ function autoFillEditorDistribution (index){
 	var dist_table = document.getElementById("distributionTab");
 	
 	// clear up all the field
-	dist_table.innerHTML = dist_table.innerHTML;
+	// dist_table.innerHTML = dist_table.innerHTML;
 	
 	// First, always fill in name
 	// we need to fetch the data for Text object
