@@ -419,7 +419,7 @@ function getReferences(index){
 	}
 	var x = "";
     x = html.toString();
-	document.getElementById("bibtex_input").value= x ;
+	//document.getElementById("bibtex_input").value= x ;
 	
 
 }

@@ -1,7 +1,10 @@
 # NEWS
+
 ## Noteworthy changes in release 1.5.3 - Jun 1th, 2012
 ### Feature
 * New added field in the distribution will also be autofilled
+### Bug Fix
+* Fix right panel math Lax not shown properly
 
 ## Noteworthy changes in release 1.5.2 - May 31th, 2012
 ### Bug Fix
