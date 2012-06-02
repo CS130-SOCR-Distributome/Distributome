@@ -10,12 +10,35 @@ distributomeEditor.references = new Array ();
 var distributomeEditorNodes = new Array();
 var referenceEditorNodes = new Array();
 
+// Auto fill the selected field
+function autoFillField(){
+    //alert("Reach here");
+    // find the selected node and return its index
+	// var selected_node;
+	var index;
+	if (!distributome){
+	    alert("Distributome is not defined, please check if editor.js is declared after distbributome.js");
+	    return;
+	}
+	else {
+	    //alert("Distributome DEFINED!!!");
+	    for (index = 0; index < distributome.nodes.length; index++){
+	        if (distributome.nodes[index].selected == "red"){
+	            //selected_node = distributome.nodes[index];
+	            break;
+	        }
+	    }
+	}
+	// call the auto fill function of distribution one more time in distributome.js
+	autoFillEditorDistribution(index);
+}
+
 // Add new field for "Distribution" tab
 function addField()
 {
 	// Create new field
 	var newField = createDropDown(distributionArray, '<option value="-1">Select a distribution attribute</option>');
-	
+	   
 	// Add to table in editor
 	var tr = document.createElement('tr');
 	tr.innerHTML = '<td>' + newField + '</td><td><input type="text" style="width:180px" class="home-txt"/></td>';
@@ -415,8 +438,8 @@ function submitXML()
 }
 
 /********* Create a drop down **********/
-	function createDropDown(fillArray, codeSnippet){
-		var dropDownOutput = '<select  class="home-txt" style="width:80px">';
+	function createDropDown(fillArray, codeSnippet, num_pos){
+		var dropDownOutput = '<select  class="home-txt" style="width:80px" onchange="autoFillField()">';
 		if(codeSnippet)
 			dropDownOutput +=codeSnippet;
 		for(var dropDownOptions=0; dropDownOptions< fillArray.length ;dropDownOptions++ ){
