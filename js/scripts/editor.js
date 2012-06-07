@@ -157,7 +157,7 @@ function reflectResourceType(){
 }
 
 function saveXML(){
-	if ( typeof editorXML == 'undefined' || editorXML = null )
+	if ( typeof editorXML == 'undefined' || editorXML == null )
 	{
 		editorXML = $('<root>');
 		$("<distributome>").attr('version', '2.0').appendTo(editorXML);
