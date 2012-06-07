@@ -64,15 +64,31 @@ body
 {
 	font-family: 'Open Sans', sans-serif;
 }
+
+#graph
+{
+	width: 800px !important;
+	float: left;
+}
+
+#MainSplitPaneObject 
+{
+	anchorToWindow: true;	/* This allows the MainSplitPaneObject to auto-resize and adopt to resizing the browser frame */
+	min-width: 800px;		/* Splitter can't be too thin ... */
+	min-height: 600px;		/* ... or too flat */
+}
+		
 #LeftPanel
 {
-	float: right;
+	float: left;
+	width: 800px !important;
+	height: 550px;
 }
 
 #accordion
 {
-	width: 231px;
-	float: left;
+	width: 300px;
+	float: right;
 }
 
 #footer-nav
@@ -108,76 +124,3 @@ body
 {
 	text-decoration: underline;
 }
-
-
-/*
-#content
-{
-	background: url('images/transparent-bg.png');
-	padding: 130px 0px 100px 0px;
-	clear: both;
-	
-}
-
-ul.featured
-{
-	margin:0 auto;
-}
-
-ul.featured li
-{
-	display: inline;
-	padding: 20px;
-}
-
-#footer
-{
-	clear: both;
-	background: #000;
-	margin: 0 -8px -8px -8px;
-	padding: 15px 0 25px 0;
-	color: #fff;
-	text-align: center;
-	font-size: 10pt;
-}
-
-#footer li
-{
-	display: inline;
-	border-left: 1px solid #fff;
-	padding: 0 35px 0px 35px;
-}
-
-#footer li:first-child
-{
-	border-left: none;
-}
-
-#footer #facebook
-{
-	border-left: none;
-	padding: 0 0 0 0px;
-}
-
-#footer #twitter
-{
-	border-left: none;
-	padding: 0 0 0 5px;
-}
-
-#footer a:link, a:visited, a:active
-{
-	color: #fff;
-	text-decoration: none;
-}
-
-#footer a:hover
-{
-	text-decoration: underline;
-}
-
-.center
-{
-	text-align: center;
-}
-*/

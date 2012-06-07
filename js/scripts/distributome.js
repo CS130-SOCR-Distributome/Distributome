@@ -75,7 +75,6 @@ function getArrowSize(d,l){
 
 /*************** Autofill the XMlEditor ***************/
 function autoFillEditorDistribution (index){
-    //alert("Remove distribution clear up!!!");
     var editor = document.getElementById("distributome.editXML");
     var dist_ele = xmlDoc.getElementsByTagName('distribution')[index];
     var e = document.getElementsByClassName('tab');
@@ -84,9 +83,6 @@ function autoFillEditorDistribution (index){
     if (editor.style.visibility == "hidden" || !dist.checked)    return;
     // Fill in as many blanks as possible
 	var dist_table = document.getElementById("distributionTab");
-	
-	// clear up all the field
-	// dist_table.innerHTML = dist_table.innerHTML;
 	
 	// First, always fill in name
 	// we need to fetch the data for Text object
@@ -109,7 +105,6 @@ function autoFillEditorDistribution (index){
 }
 
 function autoFillEditorRelation (linkIndex){
-    //alert("Editer Relation Update ONCE MORE!");
     var editor = document.getElementById("distributome.editXML");
     var rel_ele = xmlDoc.getElementsByTagName('relation')[linkIndex];
     var e = document.getElementsByClassName('tab');
@@ -122,10 +117,6 @@ function autoFillEditorRelation (linkIndex){
     var from_index = distributome.edges[linkIndex].targetNode.index;
     // set the selected element to designated index
     var rel_table = document.getElementById("relationTab");
-    
-    // clear up the original input field
-    rel_table.innerHTML = rel_table.innerHTML;
-    
     var to_ele = rel_table.rows[0].cells[1].firstChild;
     var from_ele = rel_table.rows[1].cells[1].firstChild;
     to_ele.options[to_index].selected = "selected";
@@ -143,8 +134,10 @@ function autoFillEditorRelation (linkIndex){
     }
     
     // fill up the id and clear up previous value
+    rel_table.rows[rel_table.rows.length-1].cells[1].firstChild.value = ' ';
     var id_data = rel_ele.getAttribute('id');
-    rel_table.rows[rel_table.rows.length-1].cells[1].firstChild.value = id_data;
+    if (id_data != '')
+        rel_table.rows[rel_table.rows.length-1].cells[1].firstChild.value = id_data;
 }
 
 /*************** Reset Distributome Page **************/
@@ -168,9 +161,9 @@ function resetVariables(){
 /*************** Reset search text **************/
 function resetText(){
 	document.getElementById('distributome.text').value = '';
-	document.getElementById('distributome.referencePanel').innerHTML = '<b><u>Distribution References</u></b>';
-	document.getElementById('distributome.propertiesPannel').innerHTML = '<b><u>Distribution Properties</u></b>';	
-	document.getElementById('distributome.relationPannel').innerHTML = '<b><u>Distribution Relations</u></b>';
+	document.getElementById('distributome.referencePanel').innerHTML = '';
+	document.getElementById('distributome.propertiesPannel').innerHTML = '';	
+	document.getElementById('distributome.relationPannel').innerHTML = '';
 }
 
 function resetDropDown(){
@@ -214,11 +207,7 @@ function getLinkColor(d,l){
 
 /*************** Fetch node properties **************/
 function getNodeProperties(index, nodeName, d){
-    // auto fill in the distribution editor
-	autoFillEditorDistribution(index);
-	
 	if(connectivity && d.selected != "top_hierarchy" && d.selected != "middle_hierarchy") return;
-        
 	if(!_shiftKey){
 		resetNodes();
 		presetNodes = null;
@@ -237,8 +226,11 @@ function getNodeProperties(index, nodeName, d){
 	if(referenceName !=null)
 		getReferences(referenceNodes[referenceName]);
 	else getReferences(false);
-	
 	renderMath();
+	
+	//alert("Current index is "+index);
+	// auto fill in the distribution editor
+	autoFillEditorDistribution(index);
 	
 	nodeName = trimSpecialCharacters(nodeName);
 	var firstChar = nodeName.substring(0,1).toUpperCase();
@@ -413,39 +405,33 @@ function textSearch(){
 /*************** Fetch References from the XML **************/
 function getReferences(index){
 	var html = new Array();
-	//html.push("<b><u>Distribution Referencies</u></b> <div style='height:7px'></div>");
+	html.push("<b><u>Distribution Referencies</u></b> <div style='height:7px'></div>");
 	if(index){
 		html.push(XMLParser(getObjectReferenceNumber('reference'), 9, index, false, DistributomeXML_Objects)[0]);
 	}
-	var x = "";
-    x = html.toString();
-	//document.getElementById("bibtex_input").value= x ;
-	
-
+	document.getElementById('distributome.referencePanel').innerHTML = html.join('');
 }
 
 /*************** Fetch relation information of an edge **************/
 function getRelationProperties(nodeName, linkIndex){
-	if(!_shiftKey){ //if shiftKey is not pressed
+	if(!_shiftKey){
 		resetEdges();
 	}
-	
-	// automate fill in the editor
-	autoFillEditorRelation(linkIndex);
-        
 	distributome.edges[linkIndex].selected = "red";
 	var html = new Array();;
-	html.push("<b><u>Inter-Distribution Relations</u></b> <div style='height:7px'></div>");
+	html.push("<div style='height:7px'></div>");
 	var parserOutput = XMLParser(getObjectReferenceNumber('relation'), 7, linkIndex, true, DistributomeXML_Objects);
 	html.push(parserOutput[0]);
 	var referenceName = parserOutput[1];
 	document.getElementById('distributome.relationPannel').innerHTML = html.join('');
-    
 	if(referenceName!=null)
 		getReferences(referenceNodes[referenceName]);
 	else getReferences(false);
 	
 	//alert("From Nodename is "+distributome.edges[linkIndex].sourceNode.nodeName+"; To node is "+distributome.edges[linkIndex].targetNode.nodeName);
+	//alert("Link ID is "+linkIndex);
+	// automate fill in the editor
+	autoFillEditorRelation(linkIndex);
 	
 	renderMath();
 	vis.render();
@@ -502,13 +488,10 @@ function updateNodeColor(ontologyArray, level){
 
 	
 {		
-
-//		getURLParameters();
+		getURLParameters();
 		/*** Read in and parse the Distributome.xml DB ***/
-/*
 		var xmlhttp=createAjaxRequest();
-//		xmlhttp.open("GET","Distributome.xml",false);
-		xmlhttp.open("GET","DistributomeModded.xml",false);
+		xmlhttp.open("GET","Distributome.xml",false);
 		xmlhttp.send();
 		if (!xmlhttp.responseXML.documentElement && xmlhttp.responseStream)
 			xmlhttp.responseXML.load(xmlhttp.responseStream);
@@ -520,43 +503,7 @@ function updateNodeColor(ontologyArray, level){
 		}
 		
 		traverseXML(false, null, DistributomeXML_Objects, distributome.nodes, distributome.edges, distributome.references, distributomeNodes, referenceNodes);
-*/		
-
-var xmlhttp=createAjaxRequest();
-		var xmlDoc, xmlDoc1;
-		xmlhttp.open("GET","distributome-relations.xml",false);
-		xmlhttp.send();
-		xmlDoc = xmlhttp.responseXML;
-		xmlhttp=createAjaxRequest();
-		xmlhttp.open("GET","distributome-references.xml",false);
-		xmlhttp.send();
-		xmlDoc1 = xmlhttp.responseXML;
-		var node = xmlDoc.importNode(xmlDoc1.getElementsByTagName("references").item(0), true);
-		xmlDoc.getElementsByTagName("distributome").item(0).appendChild(node);
-			try{ 
-			DistributomeXML_Objects=xmlDoc.documentElement.childNodes; 
-		}catch(error){ 
-			DistributomeXML_Objects=xmlDoc.childNodes; 
-		} 
-//	console.log("firstread: DistributomeXML_Objects: ", DistributomeXML_Objects);
-		traverseXML(false, null, DistributomeXML_Objects, distributome.nodes, distributome.edges, distributome.references, distributomeNodes, referenceNodes);
 		
-		xmlhttp=createAjaxRequest();
-		xmlhttp.open("GET","Distributome.xml.pref",false);
-		xmlhttp.send();
-		if (!xmlhttp.responseXML.documentElement && xmlhttp.responseStream)
-			xmlhttp.responseXML.load(xmlhttp.responseStream);
-		var ontologyOrder = xmlhttp.responseXML;	
-		getOntologyOrderArray(ontologyOrder);
-	
-//		console.log("firstread: xmlDoc: ", xmlDoc);
-//		console.log("firstread: nodes: ", distributome.nodes);
-//		console.log("firstread: edges: ", distributome.edges);
-//		console.log("firstread: distributomeNodes: ", distributomeNodes);
-//		console.log("firstread: referenceNodes: ", referenceNodes);
-	
-
-
 		xmlhttp=createAjaxRequest();
 		xmlhttp.open("GET","Distributome.xml.pref",false);
 		xmlhttp.send();

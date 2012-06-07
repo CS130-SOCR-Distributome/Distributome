@@ -24,8 +24,8 @@
   	<script type="text/javascript" src="scripts/protovis-r3.2.js"></script>
 	<script type="text/javascript" src="scripts/xml2json.js"></script>
   	<script type="text/javascript" src="scripts/common.js"></script>
+	<script type="text/javascript" src="scripts/distributome.js"></script>
 	<script type="text/javascript" src="scripts/editor.js"></script>
-  	<script type="text/javascript" src="scripts/distributome.js"></script>
 	<script type="text/javascript" src="./scripts/jquery.js"></script>
 	<script type="text/javascript" src="scripts/jquery-ui-1.8.20.custom.min.js"></script>
 	<script type="text/javascript" src="./scripts/splitter.js"></script>
@@ -55,7 +55,7 @@
   		});
   	</script>
 	<!-- End of MathJax LaTeX/TeX Typesetting scripts -->
-	
+	<!--
   	<style type="text/css" media="all">
 		html, body {
 			margin: 0;			/* Remove body margin/padding */
@@ -98,7 +98,7 @@
 			opacity: 0.5;
 			filter: alpha(opacity=50); /* IE */
 		}
-	</style>
+	</style>-->
 	<script type="text/javascript">
 		function isKeyPressed(event){
 			if (event.shiftKey==1) {
@@ -285,8 +285,8 @@
 				title="Restart View" onclick="graphRestart();">Restart
 			</button>
 		</td>
-		<!--
-<td class="tool">
+		
+		<td class="tool">
 			<button type="button" id="resetButton" tabindex="4" 
 				title="Pause View" onclick="graphPause();">Pause
 			</button>
@@ -297,17 +297,17 @@
 			</button>
 		</td>
 
--->
-<td>
-<input type="file" id="files" name="files[]" multiple />
-<output id="list"></output>
-			</td>
+
 
 	</tr>
 	</table>
 	</div>
 	
-	<!-- Main Distributome JS Graphical Navigator -->
+<div id="graph">
+	<!-- #MainSplitPaneObject -->
+<div id="MainSplitPaneObject">
+
+  	<!-- Main Distributome JS Graphical Navigator -->
   	<div id="LeftPanel"> 
 		<!-- center -->
 		<script type="text/javascript+protovis">
@@ -326,7 +326,7 @@
 				colors = pv.Colors.category10();
 			
 			var vis = new pv.Panel()
-    			.width(w)
+    			.width(800)
     			.height(h)
    				.fillStyle("white") //.fillStyle("rgb(240,240,240)")
     			//.event("mousedown", pv.Behavior.pan().bound(true))
@@ -399,7 +399,9 @@
 		connectedNodesFetch();
 		</script>
 		<!--  /center -->
-  	</div> 	<!-- Left Pane -->	
+  	</div>
+</div>
+</div>
 
 	<!--Left accordion sidebar-->
 	<div id="accordion">
@@ -408,6 +410,7 @@
 		</div>
 		
 		<h3><a href="#">Distribution Actions</a></h3>
+		
 		<div class="Middle Pane 1">
 			<ul> 
 				<li><a href="./calc/NormalCalculator.html" target="_blank" title="Interactive Distribution Calculator" id="distributome.calculator">Calculator</a></li>
@@ -427,7 +430,7 @@
 		<!-- Get the References from Distributome.xml -->
 		</div>
 	</div>
-
+	
 <!--XML Editor-->
 	<div id="distributome.editXML" style="position:absolute; width:320px; right:0px; top:300px; visibility:hidden; height:400px">
 	<div style="height:25px">
@@ -538,6 +541,55 @@
 		(c) Distributome.org 2008-2012
 	</div>
 </div>
+
+<!-- Splitter JavaScript Functions-->
+<script type="text/javascript">
+$().ready(function() {
+
+	// Vertical splitter. Set min/max/starting sizes for the left pane.
+	$("#MainSplitPaneObject").splitter({
+		splitVertical: false,
+		outline: false,
+		//sizeLeft: 600, minLeft: 150, maxLeft: 1200,
+		sizeRight: 300, minLeft: 100, //maxRight: 1200,
+		anchorToWindow: true,
+		accessKey: "L"
+	});
+	//$("#MainSplitPaneObject").css("height", "400px").trigger("resize");
+	//$("#MainSplitPaneObject").trigger("resize");
+	
+	// Right-Side CompositePanel including 4-split nested panels
+	// Top horizontal splitter, nested in the right pane of the vertical splitter.
+	$("#RightSide_Splitter1").splitter({
+		splitHorizontal: true,
+		outline: true,
+		//sizeTo: window,
+		sizeTop: 200, minTop: 100, //maxTop: 400,
+		accessKey: "V"
+	});
+	$("#RightSide_Splitter1").trigger("resize");
+
+	// Middle horizontal splitter, nested in RightSide_Panel3 of first horizontal splitter
+	$("#RightSide_Splitter2").splitter({
+		splitHorizontal: true,
+		outline: true,
+		sizeTop: 150, minTop: 100,
+		accessKey: "J"
+	});
+	$("#RightSide_Splitter2").trigger("resize");
+
+	// Bottom horizontal splitter, nested in RightSide_Panel3 of first horizontal splitter
+	$("#RightSide_Splitter3").splitter({
+		splitHorizontal: true,
+		outline: true,
+		//resizeBottom: 200, minTop: 150,
+		sizeTop: 200, minTop: 100,
+		accessKey: "M"
+	});
+	$("#RightSide_Splitter3").trigger("resize");
+	});
+</script>
+
 
 <script type="text/javascript+protovis">
 	function resetNavigator(){

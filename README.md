@@ -1,6 +1,10 @@
 # NEWS
 
-## Noteworthy changes in release 1.5.3 - Jun 1th, 2012
+## Noteworthy changes in release 1.5.4 - Jun 6th, 2012
+### Bug Fix
+* Navigator graph shows properly now
+
+## Noteworthy changes in release 1.5.3 - Jun 1st, 2012
 ### Feature
 * New added field in the distribution will also be autofilled
 ### Bug Fix
