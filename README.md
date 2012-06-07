@@ -1,5 +1,9 @@
 # NEWS
 
+## Noteworthy changes in release 1.5.7 - Jun 7th, 2012
+### Bug Fix
+* Now able to submit new distributions/relations after submitting once
+
 ## Noteworthy changes in release 1.5.6 - Jun 7th, 2012
 ### Feature
 * XML Editor is now more dynamic and draggable
