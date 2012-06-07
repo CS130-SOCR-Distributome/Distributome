@@ -1,5 +1,9 @@
 # NEWS
 
+## Noteworthy changes in release 1.5.6 - Jun 7th, 2012
+### Feature
+* XML Editor is now more dynamic and draggable
+
 ## Noteworthy changes in release 1.5.5 - Jun 7th, 2012
 ### Feature
 * Populate all the fields of selected distribution in XML Editor
