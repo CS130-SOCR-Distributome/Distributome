@@ -74,7 +74,52 @@ function getArrowSize(d,l){
 }
 
 /*************** Autofill the XMlEditor ***************/
-function autoFillEditorDistribution (index){
+// Create a drop down with selected index
+function createDropDownWithIndex(fillArray, codeSnippet, sel_index){
+	var dropDownOutput = '<select class="home-txt" style="width:80px" onmousedown="updateDistributionArray(this)" onchange="autoFillField(this)">';
+	if(codeSnippet)
+		dropDownOutput +=codeSnippet;
+	for(var dropDownOptions=0; dropDownOptions< fillArray.length ;dropDownOptions++ ){
+	    if (dropDownOptions == sel_index)
+	        dropDownOutput += '<option selected="selected" value="'+fillArray[dropDownOptions]+'">'+fillArray[dropDownOptions]+'</option>';
+	    else
+    		dropDownOutput += '<option value="'+fillArray[dropDownOptions]+'">'+fillArray[dropDownOptions]+'</option>';
+	}
+	return dropDownOutput;
+}
+	
+// add new field with given element array
+function addNewFieldWithAutoFill (distArray, sel_index, content){
+    // Update the distributionArray
+    distributionArray = distArray;
+    // Create new field
+	var newField = createDropDownWithIndex(distArray, '<option value="-1">Select a distribution attribute</option>', sel_index);
+	   
+	// Add to table in editor
+	var tr = document.createElement('tr');
+	tr.innerHTML = '<td>' + newField + '</td><td><input type="text" style="width:180px" class="home-txt" value="'+content+'"/></td>';
+	document.getElementById("distributionTab").appendChild(tr);
+}
+
+// helper function to fetch all the children name of a given index
+function fetchChildrenElementOfDist (index){
+    var distArray = [];
+    var dist_ele = xmlDoc.getElementsByTagName('distribution')[index];
+    
+    // append all the element name into the distArray
+    var children_count = dist_ele.childElementCount;
+    for (var i = 0; i < children_count; i++){
+        // access the actual node by index 2*i+1
+        distArray.push(dist_ele.childNodes[2*i+1].nodeName);
+    }
+    
+    return distArray;
+}
+
+// flag = 0 indicate user click a distribution
+// flag = 1 indicate user select an option field
+function autoFillEditorDistribution (index, flag){
+    //alert("Node index is "+index+"; fix click and clear up previous field");
     var editor = document.getElementById("distributome.editXML");
     var dist_ele = xmlDoc.getElementsByTagName('distribution')[index];
     var e = document.getElementsByClassName('tab');
@@ -90,17 +135,27 @@ function autoFillEditorDistribution (index){
 	// Then, always fill in the pdf
 	dist_table.rows[1].cells[1].firstChild.value = dist_ele.querySelector('pdf').firstChild.data.replace(/\s{2,}/g, ' ');
 	
-	// check for the rest table
-	for (var i = 2; i < dist_table.rows.length; i++){
-	    // fetch select type
-	    var sel = dist_table.rows[i].cells[0].firstChild;
-	    var sel_type = sel.options[sel.selectedIndex].value;
-	    var xml_node = dist_ele.querySelector(sel_type).firstChild;
-	    // check if select data is defined
-	    if (xml_node)
-    	    dist_table.rows[i].cells[1].firstChild.value = xml_node.data.replace(/\s{2,}/g, ' ');
-    	else
-    	    dist_table.rows[i].cells[1].firstChild.value = '';
+	// fill up the rest if user add a new field in XML editor
+    // check for the rest table
+    for (var i = 2; i < dist_table.rows.length; i++){
+        // destory the existing node
+        dist_table.removeChild(dist_table.rows[i]);
+        /*var xml_node = dist_ele.childNodes[2*sel.selectedIndex+1].firstChild;
+        // check if select data is defined
+        if (xml_node)
+            dist_table.rows[i].cells[1].firstChild.value = xml_node.data.replace(/\s{2,}/g, ' ');
+       	else
+       	    dist_table.rows[i].cells[1].firstChild.value = '';*/
+       	
+    }
+	// add more field
+	if (flag == 0){
+	    var distArray = fetchChildrenElementOfDist(index);
+	    // iterate through all the index
+        for (var i = 0; i < distArray.length; i++){
+            var xml_node_data = dist_ele.childNodes[2*i+1].firstChild.data.replace(/\s{2,}/g, ' ');
+            addNewFieldWithAutoFill(distArray, i, xml_node_data);
+        }
 	}
 }
 
@@ -230,7 +285,7 @@ function getNodeProperties(index, nodeName, d){
 	
 	//alert("Current index is "+index);
 	// auto fill in the distribution editor
-	autoFillEditorDistribution(index);
+	autoFillEditorDistribution(index, 0);
 	
 	nodeName = trimSpecialCharacters(nodeName);
 	var firstChar = nodeName.substring(0,1).toUpperCase();

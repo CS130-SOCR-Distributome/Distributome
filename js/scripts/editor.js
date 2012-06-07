@@ -10,11 +10,33 @@ distributomeEditor.references = new Array ();
 var distributomeEditorNodes = new Array();
 var referenceEditorNodes = new Array();
 
+// update the distribution array
+function updateDistributionArray(ele) {
+    //alert("update distribution array! Change to onmousedown");
+    while(ele.firstChild){
+        ele.removeChild(ele.firstChild);
+    }
+    // insert child back
+    var new_child = document.createElement('option');
+    new_child.value = "-1";
+    new_child.innerHTML = "Select a distribution attribute";
+    ele.appendChild(new_child);
+    
+    for(var dropDownOptions=0; dropDownOptions< distributionArray.length ;dropDownOptions++ ){
+        var more_child = document.createElement('option');
+        more_child.value = distributionArray[dropDownOptions];
+        more_child.innerHTML = distributionArray[dropDownOptions];
+	    ele.appendChild(more_child); 
+	}
+}
+
 // Auto fill the selected field
-function autoFillField(){
-    //alert("Reach here");
-    // find the selected node and return its index
-	// var selected_node;
+function autoFillField(ele){
+    /*if (ele)
+        alert("Current select element is "+ele.selectedIndex);
+    else
+        alert("Pass in object not defined");*/    
+	
 	var index;
 	if (!distributome){
 	    alert("Distributome is not defined, please check if editor.js is declared after distbributome.js");
@@ -30,7 +52,10 @@ function autoFillField(){
 	    }
 	}
 	// call the auto fill function of distribution one more time in distributome.js
-	autoFillEditorDistribution(index);
+	// autoFillEditorDistribution(index, 1);
+	var dist_ele = xmlDoc.getElementsByTagName('distribution')[index];
+	// since we have a default selection at the beginning, then the index of childNodes is decrement by 2
+	ele.parentNode.parentNode.children[1].firstChild.value =  dist_ele.childNodes[2*ele.selectedIndex-1].firstChild.data.replace(/\s{2,}/g, ' ');
 }
 
 // Add new field for "Distribution" tab
@@ -439,7 +464,7 @@ function submitXML()
 
 /********* Create a drop down **********/
 	function createDropDown(fillArray, codeSnippet, num_pos){
-		var dropDownOutput = '<select  class="home-txt" style="width:80px" onchange="autoFillField()">';
+		var dropDownOutput = '<select  class="home-txt" style="width:80px" onmousedown="updateDistributionArray(this)" onchange="autoFillField(this)">';
 		if(codeSnippet)
 			dropDownOutput +=codeSnippet;
 		for(var dropDownOptions=0; dropDownOptions< fillArray.length ;dropDownOptions++ ){

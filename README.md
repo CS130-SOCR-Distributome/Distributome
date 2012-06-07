@@ -1,5 +1,9 @@
 # NEWS
 
+## Noteworthy changes in release 1.5.5 - Jun 7th, 2012
+### Feature
+* Populate all the fields of selected distribution in XML Editor
+
 ## Noteworthy changes in release 1.5.4 - Jun 6th, 2012
 ### Bug Fix
 * Navigator graph shows properly now
