@@ -157,7 +157,7 @@ function reflectResourceType(){
 }
 
 function saveXML(){
-	if ( typeof editorXML == 'undefined' )
+	if ( typeof editorXML == 'undefined' || editorXML = null )
 	{
 		editorXML = $('<root>');
 		$("<distributome>").attr('version', '2.0').appendTo(editorXML);
@@ -454,6 +454,9 @@ function submitXML()
 			// re-enable the submit button
 			submitNode.disabled = false;
 			submitNode.value = "Submit";
+
+			// null out editorXML so user can add more things
+			editorXML = null;
 			
 			// output for debugging purposes
 			// console.log( JSON.stringify(response) );;
