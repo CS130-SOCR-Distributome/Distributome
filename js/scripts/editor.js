@@ -75,10 +75,16 @@ function showDropDowns()
 {
 	var toDropDown = nodeDropDown;
 	var fromDropDown = nodeDropDown;
-	var td1 = document.getElementById("relationTab").rows[0].insertCell(1);
-	var td2 = document.getElementById("relationTab").rows[1].insertCell(1);
-	td1.innerHTML = toDropDown;
-	td2.innerHTML = fromDropDown;
+	if ( document.getElementById("relationTab").rows[0].cells.length < 2 )
+	{
+		var td1 = document.getElementById("relationTab").rows[0].insertCell(1);
+		td1.innerHTML = toDropDown;
+	}
+	if ( document.getElementById("relationTab").rows[1].cells.length < 2 )
+	{
+		var td2 = document.getElementById("relationTab").rows[1].insertCell(1);
+		td2.innerHTML = fromDropDown;
+	}
 }
 
 // Add a new author field for "Citation" tab

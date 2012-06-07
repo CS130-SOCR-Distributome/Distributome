@@ -292,8 +292,11 @@
 			</button>
 		</td>
 		<td class="tool">
-			<button type="button" id="resetButton" tabindex="4" 
+			<!--<button type="button" id="resetButton" tabindex="4" 
 				title="Reset View" onclick="editXML();">XML Editor
+			</button>-->
+			<button type="button" id="resetButton" tabindex="4" 
+				title="Reset View" onclick="$('#dialog-add').dialog('close');$('#distributome\\.editXML').dialog({height : 420, width : 320});">XML Editor
 			</button>
 		</td>
 
@@ -432,7 +435,7 @@
 	</div>
 	
 <!--XML Editor-->
-	<div id="distributome.editXML" style="position:absolute; width:320px; right:0px; top:300px; visibility:hidden; height:400px">
+<div id="distributome.editXML" title="XML Editor">
 	<div style="height:25px">
 			<div class="tabs">
 			   <div class="tab">
@@ -512,12 +515,12 @@
 			<div class="buttons">
 				<span></span>
 				<button type="button" onclick="saveXML()">Save</button>
-				<button type="button" disabled="disabled" onclick="$('#dialog').dialog({width:450});">Submit</button>
+				<button type="button" disabled="disabled" onclick="$('#distributome\\.editXML').dialog('close');$('#dialog-add').dialog({width:450});">Submit</button>
 			</div>
 	</div>
 	</div>
 
-	<div id="dialog" title="Submit">
+	<div id="dialog-add" title="Submit">
 		<p>To complete the submission, please input your email and the code you see in the image.</p>
 		<p>Your email will not be used for any solicitation but for verification purposes and to respond to you if there are any issues with your submission.</p>
 

@@ -1,3 +1,10 @@
+#distributome\.editXML
+{
+	display: none; 
+	padding: 0px;
+	margin: 0px;
+}
+
 .tabs {
   position: relative;
   min-height: 330px; 
@@ -62,31 +69,31 @@
 	float: left;
 }
 
-#dialog
+#dialog-add
 {
 	width: 450px;
 	display: none;
 }
 
-#dialog ul, #dialog, li
+#dialog-add ul, #dialog-add li
 {
 	margin: 0px;
 	padding: 0px;
 }
 
-#dialog ul
+#dialog-add ul
 {
 	list-style: none;
 }
 
-#dialog li
+#dialog-add li
 {
 	clear: both;
 	padding-left: 10px;
 	margin: 10px 0px;
 }
 
-#dialog li label
+#dialog-add li label
 {
 	width: 100px;
 	display: inline-block;
@@ -94,19 +101,19 @@
 	text-align: left;
 }
 
-#dialog ul li img#captcha
+#dialog-add ul li img#captcha
 {
-	margin-left: 95px;
+	margin-left: 140px;
 	margin-right: 10px;
 	border: 1px solid #999;
 }
 
-#dialog ul li a
+#dialog-add ul li a
 {
 	vertical-align: top;
 }
 
-#dialog #response
+ #dialog-add #response
 {
 	float: left;
 	font-size: 11px;
