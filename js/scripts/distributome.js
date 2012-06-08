@@ -216,7 +216,7 @@ function resetVariables(){
 /*************** Reset search text **************/
 function resetText(){
 	document.getElementById('distributome.text').value = '';
-	document.getElementById('distributome.referencePanel').innerHTML = '';
+	//document.getElementById('distributome.referencePanel').innerHTML = '';
 	document.getElementById('distributome.propertiesPannel').innerHTML = '';	
 	document.getElementById('distributome.relationPannel').innerHTML = '';
 }
@@ -460,11 +460,15 @@ function textSearch(){
 /*************** Fetch References from the XML **************/
 function getReferences(index){
 	var html = new Array();
-	html.push("<div style='height:7px'></div>");
+	//html.push("<b><u>Distribution Referencies</u></b> <div style='height:7px'></div>");
 	if(index){
 		html.push(XMLParser(getObjectReferenceNumber('reference'), 9, index, false, DistributomeXML_Objects)[0]);
 	}
-	document.getElementById('distributome.referencePanel').innerHTML = html.join('');
+	var x = "";
+    x = html.toString();
+	document.getElementById("bibtex_input").value= x ;
+	
+
 }
 
 /*************** Fetch relation information of an edge **************/
@@ -543,20 +547,28 @@ function updateNodeColor(ontologyArray, level){
 
 	
 {		
-		getURLParameters();
+/*
+Split into distributions and relations - but append them
+*/
+		//getURLParameters();
 		/*** Read in and parse the Distributome.xml DB ***/
 		var xmlhttp=createAjaxRequest();
-		xmlhttp.open("GET","Distributome.xml",false);
+		var xmlDoc, xmlDoc1;
+		xmlhttp.open("GET","distributome-relations.xml",false);
 		xmlhttp.send();
-		if (!xmlhttp.responseXML.documentElement && xmlhttp.responseStream)
-			xmlhttp.responseXML.load(xmlhttp.responseStream);
 		xmlDoc = xmlhttp.responseXML;
-		try{
-			DistributomeXML_Objects=xmlDoc.documentElement.childNodes;
-		}catch(error){
-			DistributomeXML_Objects=xmlDoc.childNodes;
-		}
-		
+		xmlhttp=createAjaxRequest();
+		xmlhttp.open("GET","distributome-references.xml",false);
+		xmlhttp.send();
+		xmlDoc1 = xmlhttp.responseXML;
+		var node = xmlDoc.importNode(xmlDoc1.getElementsByTagName("references").item(0), true);
+		xmlDoc.getElementsByTagName("distributome").item(0).appendChild(node);
+			try{ 
+			DistributomeXML_Objects=xmlDoc.documentElement.childNodes; 
+		}catch(error){ 
+			DistributomeXML_Objects=xmlDoc.childNodes; 
+		} 
+	console.log("firstread: DistributomeXML_Objects: ", DistributomeXML_Objects);
 		traverseXML(false, null, DistributomeXML_Objects, distributome.nodes, distributome.edges, distributome.references, distributomeNodes, referenceNodes);
 		
 		xmlhttp=createAjaxRequest();
@@ -566,4 +578,14 @@ function updateNodeColor(ontologyArray, level){
 			xmlhttp.responseXML.load(xmlhttp.responseStream);
 		var ontologyOrder = xmlhttp.responseXML;	
 		getOntologyOrderArray(ontologyOrder);
+	
+		console.log("firstread: xmlDoc: ", xmlDoc);
+		console.log("firstread: nodes: ", distributome.nodes);
+		console.log("firstread: edges: ", distributome.edges);
+		console.log("firstread: distributomeNodes: ", distributomeNodes);
+		console.log("firstread: referenceNodes: ", referenceNodes);
+	
 }
+
+
+
