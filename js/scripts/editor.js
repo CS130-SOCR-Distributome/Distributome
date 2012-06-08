@@ -444,6 +444,9 @@ function submitXML()
 			{
 				responseNode.style.color = 'green';
 				var text = "Your contribution is now pending review.";
+
+				// null out editorXML so user can add more things
+				editorXML = null;
 			}
 			else
 			{
@@ -458,9 +461,6 @@ function submitXML()
 			submitNode.disabled = false;
 			submitNode.value = "Submit";
 
-			// null out editorXML so user can add more things
-			editorXML = null;
-			
 			// output for debugging purposes
 			// console.log( JSON.stringify(response) );;
 	    }

@@ -1,4 +1,7 @@
 # NEWS
+## Noteworthy changes in release 1.5.12 - Jun 8th, 2012
+### Bug Fix
+* Fixed a bug that caused the submitting to freeze
 
 ## Noteworthy changes in release 1.5.11 - Jun 8th, 2012
 ### Bug Fix
