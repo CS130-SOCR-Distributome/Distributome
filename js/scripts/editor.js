@@ -403,8 +403,8 @@ function saveXML(){
 function submitXML()
 {
 	// gather inputs
-	var email = document.querySelector('#dialog-add input[name="email"]').value;
-	var captcha_code = document.querySelector('#dialog-add input[name="captcha_code"]').value;
+	var email = document.querySelector('#dialog input[name="email"]').value;
+	var captcha_code = document.querySelector('#dialog input[name="captcha_code"]').value;
 	
 	if ( email.search(/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b/i) < 0 )
 	{
@@ -413,7 +413,7 @@ function submitXML()
 	}
 	
 	// Disable the submit button and display "Sending..."
-	var submitNode = document.querySelector('#dialog-add input[type="submit"]');
+	var submitNode = document.querySelector('#dialog input[type="submit"]');
 	submitNode.value = "Sending...";
 	submitNode.disabled = true;
 	
@@ -597,29 +597,3 @@ function fetchArray(xmlDoc){
 	}
 }
 
-{
-
-		var xmlhttp=createAjaxRequest();
-		xmlhttp.open("GET","Distributome.xsd",false);
-		xmlhttp.send();
-		//if (!xmlhttp.responseXML.documentElement && xmlhttp.responseStream)
-			//xmlhttp.responseXML.load(xmlhttp.responseStream);
-		var xmlData = xmlhttp.responseText;
-		var myXMLasJSON = convertXMLToJSON(convertTextToXML(xmlData));
-		fetchArray(myXMLasJSON);
-		var xmlhttp=createAjaxRequest();
-		xmlhttp.open("GET","Distributome.xml",false);
-		xmlhttp.send();
-		if (!xmlhttp.responseXML.documentElement && xmlhttp.responseStream)
-			xmlhttp.responseXML.load(xmlhttp.responseStream);
-		xmlDoc = xmlhttp.responseXML;
-		var distributomeEditorXML_Objects;
-		try{
-			distributomeEditorXML_Objects=xmlDoc.documentElement.childNodes;
-		}catch(error){
-			distributomeEditorXML_Objects=xmlDoc.childNodes;
-		}
-		traverseXML(false, null, distributomeEditorXML_Objects, distributomeEditor.nodes, distributomeEditor.edges, distributomeEditor.references, distributomeEditorNodes, referenceEditorNodes);//TODO send xmlDoc also
-		nodeDropDown = nodesDropDown();
-	
-}
