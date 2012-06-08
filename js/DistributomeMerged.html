@@ -27,8 +27,10 @@
 	<script type="text/javascript" src="scripts/distributome.js"></script>
 	<script type="text/javascript" src="scripts/editor.js"></script>
 	<script type="text/javascript" src="./scripts/jquery.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 	<script type="text/javascript" src="scripts/jquery-ui-1.8.20.custom.min.js"></script>
 	<script type="text/javascript" src="./scripts/splitter.js"></script>
+	<script type="text/javascript" src="./scripts/bibtex_js.js"></script>
 
 	<!-- MathJax LaTeX/TeX Typesetting scripts -->
 	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
@@ -55,8 +57,8 @@
   		});
   	</script>
 	<!-- End of MathJax LaTeX/TeX Typesetting scripts -->
-    <textarea id="bibtex_input"> 
-    </textarea>
+<textarea id="bibtex_input" style="display:none"> 
+</textarea>
 	<script type="text/javascript">
 		function isKeyPressed(event){
 			if (event.shiftKey==1) {
@@ -124,9 +126,8 @@
 	   }
 	}
 	
-	
+	// Accordion for left sidebar
 	$(function() {
-		// Accordion for left sidebar
 		$( ".accordion" ).accordion({ 
 			"fillSpace" : true, 
 			"collapsible" : true, 
@@ -439,13 +440,28 @@
 	<div class="accordion-container">
 		<div class="accordion">
 			<h3><a href="#">Distribution References</a></h3>
-			<div class="Bottom Pane" id="distributome.referencePanel">
-			<!-- Get the References from Distributome.xml -->
+			<div class="Bottom Pane" id="bibtex_display" style="line-height:16px">
+			
 			</div>
 		</div>
 	</div>
 </div>
 
+<script type="text/javascript" charset="utf-8">
+refresh = false;
+window.setInterval(function() {
+	if (refresh) {
+		try {
+			bibtex_js_draw();
+        } catch (err) {}
+      refresh = false;
+	  
+    }
+  }, 500);
+$("#MainSplitPaneObject").click(function() {
+	refresh = true;
+});
+</script>
 <!--XML Editor-->
 <div id="distributome.editXML" title="XML Editor">
 	<div style="height:25px">
@@ -476,11 +492,11 @@
 					   <table id="relationTab">
 							<tr>
 								<td style="width: 100px">To*:</td>
-								<td><input type="text" style="width:180px" name="to"></td>
+                                <td><input type="text" style="width:180px" name="to"></td>
 							</tr>
 							<tr>
 								<td>From*:</td>
-								<td><input type="text" style="width:180px" name="from"></td>
+                                <td><input type="text" style="width:180px" name="from"></td>
 							</tr>
 							<tr>
 								<td>Statement*:</td>
@@ -689,3 +705,4 @@ $().ready(function() {
 <!-- End of GoogleAnalytics Code -->
 </body>
 </html>
+
