@@ -490,7 +490,7 @@ function getRelationProperties(nodeName, linkIndex){
 	else getReferences(false);
 	
 	//alert("From Nodename is "+distributome.edges[linkIndex].sourceNode.nodeName+"; To node is "+distributome.edges[linkIndex].targetNode.nodeName);
-	alert("Link ID is "+linkIndex);
+	//alert("Link ID is "+linkIndex);
 	if (distributome.edges[linkIndex])
 	    distributome.edges[linkIndex].selected = "red";
 	// automate fill in the editor

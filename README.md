@@ -1,5 +1,9 @@
 # NEWS
 
+## Noteworthy changes in release 1.5.11 - Jun 8th, 2012
+### Bug Fix
+* Editor really only autofills when open now
+
 ## Noteworthy changes in release 1.5.10 - Jun 8th, 2012
 ### Bug Fix
 * Editor autofills only when open now

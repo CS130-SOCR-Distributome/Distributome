@@ -124,8 +124,9 @@
 	   }
 	}
 	
-	// Accordion for left sidebar
+	
 	$(function() {
+		// Accordion for left sidebar
 		$( ".accordion" ).accordion({ 
 			"fillSpace" : true, 
 			"collapsible" : true, 
@@ -161,6 +162,9 @@
 				});	
 			}
 		});
+
+		// initialize the editor but hide it 
+		$("#distributome\\.editXML").dialog().dialog("close");
 	});
 </script>
 </head>
