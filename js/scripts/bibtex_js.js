@@ -291,7 +291,7 @@ function BibtexDisplay() {
           f.innerHTML = "";
         }
       });
-      output.append("<b><u>Distribution References</u></b> <br />");
+      
       o.append(tpl);
       tpl.show();
     }
@@ -311,7 +311,7 @@ function BibtexDisplay() {
 
     // iterate over bibTeX entries
     var entries = b.getEntries();
-	output.append("<b><u>Distribution References</u></b> <br />");
+	
 	for (var entryKey in entries) {
       var entry = entries[entryKey];
       
@@ -389,3 +389,4 @@ if (typeof jQuery == 'undefined') {
     bibtex_js_draw();
   });
 }
+
