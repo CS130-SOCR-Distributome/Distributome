@@ -172,21 +172,20 @@ function autoFillEditorRelation (linkIndex){
     var from_index = distributome.edges[linkIndex].targetNode.index;
     // set the selected element to designated index
     var rel_table = document.getElementById("relationTab");
-    // TODO: uncomment the following four lines, if you decide to put drop down "To/From" back
-    //var to_ele = rel_table.rows[0].cells[1].firstChild;
-    //var from_ele = rel_table.rows[1].cells[1].firstChild;
-    //to_ele.options[to_index].selected = "selected";
-    //from_ele.options[from_index].selected = "selected";
+    var to_ele = rel_table.rows[0].cells[1].firstChild;
+    var from_ele = rel_table.rows[1].cells[1].firstChild;
+    to_ele.options[to_index].selected = "selected";
+    from_ele.options[from_index].selected = "selected";
     
     // fill up the statement and type
-    for (var i = 0; i < rel_table.rows.length - 1; i++){
+    for (var i = 2; i < rel_table.rows.length - 1; i++){
         // clear up previous value first
         rel_table.rows[i].cells[1].firstChild.value = ' ';
         var next_name = rel_table.rows[i].cells[0].innerHTML;
-	    var xml_node = rel_ele.querySelector(next_name.replace(/[^A-Za-z]/g, "").toLowerCase());
+	    var xml_node = rel_ele.querySelector(next_name.replace(/[^A-Za-z]/g, "").toLowerCase()).firstChild;
 	    // check if select data is defined
 	    if (xml_node)
-    	    rel_table.rows[i].cells[1].firstChild.value = xml_node.firstChild.data.replace(/\s{2,}/g, ' ');
+    	    rel_table.rows[i].cells[1].firstChild.value = xml_node.data.replace(/\s{2,}/g, ' ');
     }
     
     // fill up the id and clear up previous value
@@ -286,8 +285,7 @@ function getNodeProperties(index, nodeName, d){
 	
 	//alert("Current index is "+index);
 	// auto fill in the distribution editor
-	if ( $("#distributome\\.editXML").dialog("isOpen") )
-		autoFillEditorDistribution(index, 0);
+	autoFillEditorDistribution(index, 0);
 	
 	nodeName = trimSpecialCharacters(nodeName);
 	var firstChar = nodeName.substring(0,1).toUpperCase();
@@ -478,7 +476,7 @@ function getRelationProperties(nodeName, linkIndex){
 	if(!_shiftKey){
 		resetEdges();
 	}
-	
+	distributome.edges[linkIndex].selected = "red";
 	var html = new Array();;
 	html.push("<div style='height:7px'></div>");
 	var parserOutput = XMLParser(getObjectReferenceNumber('relation'), 7, linkIndex, true, DistributomeXML_Objects);
@@ -491,11 +489,8 @@ function getRelationProperties(nodeName, linkIndex){
 	
 	//alert("From Nodename is "+distributome.edges[linkIndex].sourceNode.nodeName+"; To node is "+distributome.edges[linkIndex].targetNode.nodeName);
 	//alert("Link ID is "+linkIndex);
-	if (distributome.edges[linkIndex])
-	    distributome.edges[linkIndex].selected = "red";
 	// automate fill in the editor
-	if ( $("#distributome\\.editXML").dialog("isOpen") )
-		autoFillEditorRelation(linkIndex);
+	autoFillEditorRelation(linkIndex);
 	
 	renderMath();
 	vis.render();
