@@ -273,7 +273,7 @@ function getNodeProperties(index, nodeName, d){
 	}
 	distributome.nodes[index].selected = "red";
 	var html = new Array();
-	html.push("<b><u>Distribution Properties</u></b> <div style='height:7px'></div>");
+	html.push("<div style='height:7px'></div>");
 	var parserOutput = XMLParser(getObjectReferenceNumber('node'), 1, index, true, DistributomeXML_Objects);
 	html.push(parserOutput[0]);
 	var referenceName= parserOutput[1];
@@ -460,7 +460,7 @@ function textSearch(){
 /*************** Fetch References from the XML **************/
 function getReferences(index){
 	var html = new Array();
-	html.push("<b><u>Distribution Referencies</u></b> <div style='height:7px'></div>");
+	html.push("<div style='height:7px'></div>");
 	if(index){
 		html.push(XMLParser(getObjectReferenceNumber('reference'), 9, index, false, DistributomeXML_Objects)[0]);
 	}

@@ -1,5 +1,11 @@
 # NEWS
 
+## Noteworthy changes in release 1.5.8 - Jun 8th, 2012
+### Bug Fix
+* Fixed accordion resizing
+* Removed accordion section headers
+* Replaced DistributomeMerged.html with content from DistributomeMerged-layout.html
+
 ## Noteworthy changes in release 1.5.7 - Jun 7th, 2012
 ### Bug Fix
 * Now able to submit new distributions/relations after submitting once
