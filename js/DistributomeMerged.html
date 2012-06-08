@@ -55,7 +55,8 @@
   		});
   	</script>
 	<!-- End of MathJax LaTeX/TeX Typesetting scripts -->
-
+    <textarea id="bibtex_input"> 
+    </textarea>
 	<script type="text/javascript">
 		function isKeyPressed(event){
 			if (event.shiftKey==1) {
@@ -471,9 +472,11 @@
 					   <table id="relationTab">
 							<tr>
 								<td style="width: 100px">To*:</td>
+								<td><input type="text" style="width:180px" name="to"></td>
 							</tr>
 							<tr>
 								<td>From*:</td>
+								<td><input type="text" style="width:180px" name="from"></td>
 							</tr>
 							<tr>
 								<td>Statement*:</td>

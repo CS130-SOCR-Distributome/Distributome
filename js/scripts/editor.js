@@ -215,9 +215,12 @@ function saveXML(){
 		// gather input
 		var rel_table = document.getElementById("relationTab");
 		var to_ele = rel_table.rows[0].cells[1].firstChild;
-		var to_value = to_ele.options[to_ele.selectedIndex].value;
 	    var from_ele = rel_table.rows[1].cells[1].firstChild;
-	    var from_value = from_ele.options[from_ele.selectedIndex].value;
+	    // TODO: uncomment the following two lines and comment the next two, if you decide to put drop down "To/From" back
+	    //var to_value = to_ele.options[to_ele.selectedIndex].value;
+	    //var from_value = from_ele.options[from_ele.selectedIndex].value;
+	    var to_value = to_ele.value;
+	    var from_value = from_ele.value;
 	    var state_ele = rel_table.rows[2].cells[1].firstChild;
 	    // check for required To, From, Statement
 	    if (to_value != "" &&  from_value != "" && state_ele.value != ""){
@@ -403,8 +406,8 @@ function saveXML(){
 function submitXML()
 {
 	// gather inputs
-	var email = document.querySelector('#dialog input[name="email"]').value;
-	var captcha_code = document.querySelector('#dialog input[name="captcha_code"]').value;
+	var email = document.querySelector('#dialog-add input[name="email"]').value;
+	var captcha_code = document.querySelector('#dialog-add input[name="captcha_code"]').value;
 	
 	if ( email.search(/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b/i) < 0 )
 	{
@@ -413,7 +416,7 @@ function submitXML()
 	}
 	
 	// Disable the submit button and display "Sending..."
-	var submitNode = document.querySelector('#dialog input[type="submit"]');
+	var submitNode = document.querySelector('#dialog-add input[type="submit"]');
 	submitNode.value = "Sending...";
 	submitNode.disabled = true;
 	
