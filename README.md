@@ -1,5 +1,9 @@
 # NEWS
 
+## Noteworthy changes in release 1.5.9 - Jun 8th, 2012
+### Bug Fix
+* Fixed XML editor submission error
+
 ## Noteworthy changes in release 1.5.8 - Jun 8th, 2012
 ### Bug Fix
 * Fixed accordion resizing

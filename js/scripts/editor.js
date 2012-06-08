@@ -403,8 +403,8 @@ function saveXML(){
 function submitXML()
 {
 	// gather inputs
-	var email = document.querySelector('#dialog input[name="email"]').value;
-	var captcha_code = document.querySelector('#dialog input[name="captcha_code"]').value;
+	var email = document.querySelector('#dialog-add input[name="email"]').value;
+	var captcha_code = document.querySelector('#dialog-add input[name="captcha_code"]').value;
 	
 	if ( email.search(/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b/i) < 0 )
 	{
@@ -413,7 +413,7 @@ function submitXML()
 	}
 	
 	// Disable the submit button and display "Sending..."
-	var submitNode = document.querySelector('#dialog input[type="submit"]');
+	var submitNode = document.querySelector('#dialog-add input[type="submit"]');
 	submitNode.value = "Sending...";
 	submitNode.disabled = true;
 	
