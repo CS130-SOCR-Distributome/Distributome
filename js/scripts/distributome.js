@@ -285,7 +285,8 @@ function getNodeProperties(index, nodeName, d){
 	
 	//alert("Current index is "+index);
 	// auto fill in the distribution editor
-	autoFillEditorDistribution(index, 0);
+	if ( $("#distributome\\.editXML").dialog("isOpen") )
+		autoFillEditorDistribution(index, 0);
 	
 	nodeName = trimSpecialCharacters(nodeName);
 	var firstChar = nodeName.substring(0,1).toUpperCase();
@@ -490,7 +491,8 @@ function getRelationProperties(nodeName, linkIndex){
 	//alert("From Nodename is "+distributome.edges[linkIndex].sourceNode.nodeName+"; To node is "+distributome.edges[linkIndex].targetNode.nodeName);
 	//alert("Link ID is "+linkIndex);
 	// automate fill in the editor
-	autoFillEditorRelation(linkIndex);
+	if ( $("#distributome\\.editXML").dialog("isOpen") )
+		autoFillEditorRelation(linkIndex);
 	
 	renderMath();
 	vis.render();
